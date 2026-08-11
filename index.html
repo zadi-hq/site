@@ -3,209 +3,641 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Zadi | Every card you own, one app that thinks about all of them</title>
-<meta name="description" content="Zadi is a bank-agnostic credit card app for UAE residents. See every card in one place, know which one to swipe, and never miss a due date.">
-<meta property="og:title" content="Zadi | Every card you own, one app that thinks about all of them">
-<meta property="og:description" content="A bank-agnostic credit card app for UAE residents. One view of everything you owe and earn.">
+<title>Zadi | Every credit card you own, one app that thinks about all of them</title>
+<meta name="description" content="Zadi brings your UAE credit cards from every bank into one app: what you owe, when it is due, which card to swipe, and what your rewards are really worth. In private beta.">
+<meta property="og:title" content="Zadi | One app for every credit card you own">
+<meta property="og:description" content="See every card from every bank in one place. Due-date reminders, the best card for each purchase, and the rewards you are missing, counted in dirhams.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://zadi.ae">
+<meta property="og:image" content="https://zadi.ae/assets/demo-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Zadi","url":"https://zadi.ae","logo":"https://zadi.ae/assets/icon.png","email":"hello@zadi.ae","description":"A bank-agnostic credit card app for UAE residents.","address":{"@type":"PostalAddress","addressCountry":"AE"}}
+</script>
 <style>
   :root{
-    --ink:#1B1A17; --ink-2:#26241f; --gold:#B0832E; --gold-soft:#C9A96E;
-    --gold-light:#D8B777; --ivory:#F6F5F2; --muted:#8d8880; --line:#302d27;
-    --max:1080px;
+    --ink:#1B1A17; --ink-soft:#4A463F; --ink-mute:#7A756B;
+    --paper:#FAF8F4; --paper-2:#F2EFE7; --card:#FFFFFF;
+    --gold:#B0832E; --gold-deep:#7E5C1D; --gold-light:#D8B777; --gold-wash:#F6EEDD;
+    --line:rgba(27,26,23,.12); --line-dark:rgba(246,245,242,.14);
+    --ivory:#F6F5F2; --ivory-mute:#B5B0A6;
+    --radius:20px; --wrap:1120px;
+    --font-display:"Fraunces",Georgia,serif;
+    --font-body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   }
-  *{box-sizing:border-box}
+  *{box-sizing:border-box; margin:0}
+  html{scroll-behavior:smooth}
   body{
-    margin:0; background:var(--ink); color:var(--ivory);
-    font:400 17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased;
+    font-family:var(--font-body); font-size:17px; line-height:1.7;
+    color:var(--ink); background:var(--paper);
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
   }
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
-  a{color:var(--gold-light)}
-  h1,h2,h3{line-height:1.2; letter-spacing:-0.02em; margin:0}
-  h1{font-size:clamp(34px,5.4vw,58px); font-weight:600}
-  h2{font-size:clamp(26px,3.4vw,36px); font-weight:600}
-  h3{font-size:19px; font-weight:600}
-  .eyebrow{
-    color:var(--gold-light); font-size:13px; letter-spacing:.14em;
-    text-transform:uppercase; font-weight:600; margin:0 0 18px
+  img{max-width:100%; height:auto; display:block}
+  a{color:var(--gold-deep)}
+  .wrap{max-width:var(--wrap); margin-inline:auto; padding-inline:24px}
+
+  h1,h2,h3{font-family:var(--font-display); font-weight:600; line-height:1.12; letter-spacing:-0.01em}
+  h1{font-size:clamp(2.5rem,5.6vw,4.1rem)}
+  h2{font-size:clamp(1.9rem,3.6vw,2.75rem)}
+  h3{font-size:1.35rem}
+  .kicker{
+    font-size:.78rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-deep); margin-bottom:16px;
+  }
+  .dark .kicker{color:var(--gold-light)}
+  .lead{font-size:clamp(1.05rem,1.6vw,1.2rem); color:var(--ink-soft); max-width:56ch}
+  .dark{background:var(--ink); color:var(--ivory)}
+  .dark .lead{color:var(--ivory-mute)}
+  section{padding-block:clamp(72px,9vw,120px); scroll-margin-top:76px}
+
+  /* buttons */
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; padding:14px 26px;
+    border-radius:999px; font-weight:600; font-size:.98rem; text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-gold{background:var(--gold); color:#161511; box-shadow:0 10px 28px rgba(176,131,46,.35)}
+  .btn-gold:hover{background:#BE8F35}
+  .btn-ghost{border:1px solid var(--line); color:var(--ink)}
+  .dark .btn-ghost{border-color:var(--line-dark); color:var(--ivory)}
+  .btn svg{flex-shrink:0}
+
+  /* ============ nav ============ */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,248,244,.85); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent; transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  header.scrolled{border-color:var(--line); box-shadow:0 4px 24px rgba(27,26,23,.06)}
+  .nav{display:flex; align-items:center; gap:32px; height:72px}
+  .brand{display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--ink); margin-inline-end:auto}
+  .brand img{width:34px; height:34px; border-radius:9px}
+  .brand strong{font-family:var(--font-display); font-size:1.35rem; font-weight:600}
+  .nav-links{display:flex; gap:28px}
+  .nav-links a{color:var(--ink-soft); text-decoration:none; font-size:.94rem; font-weight:500}
+  .nav-links a:hover{color:var(--ink)}
+  .nav .btn{padding:10px 20px; font-size:.9rem}
+  .menu-btn{display:none; background:none; border:0; padding:8px; cursor:pointer; color:var(--ink)}
+  .mobile-panel{display:none}
+  @media (max-width:860px){
+    .nav-links{display:none}
+    .menu-btn{display:block}
+    .nav{gap:14px}
+    .mobile-panel{
+      display:none; position:absolute; inset-inline:0; top:72px; background:var(--paper);
+      border-bottom:1px solid var(--line); padding:10px 24px 22px;
+    }
+    header.open .mobile-panel{display:block}
+    .mobile-panel a{display:block; padding:13px 4px; text-decoration:none; color:var(--ink); font-weight:500; border-bottom:1px solid var(--line)}
+    .mobile-panel a:last-child{border-bottom:0}
   }
 
-  header{border-bottom:1px solid var(--line)}
-  .nav{display:flex; align-items:center; gap:12px; padding-top:18px; padding-bottom:18px}
-  .nav img{width:34px; height:34px; border-radius:9px}
-  .nav strong{font-size:19px; letter-spacing:-0.01em}
-  .nav .right{margin-left:auto; color:var(--muted); font-size:14px}
-
-  .hero{padding-top:86px; padding-bottom:64px}
-  .hero p.lead{font-size:clamp(18px,2.1vw,21px); color:#cfcac1; max-width:60ch; margin:22px 0 0}
-  .mission{
-    margin:34px 0 0; padding-left:18px; border-left:2px solid var(--gold);
-    font-size:19px; color:var(--gold-light); font-style:italic
+  /* ============ hero ============ */
+  .hero{position:relative; overflow:hidden; padding-block:clamp(72px,9vw,116px) 0}
+  .hero::before{
+    content:""; position:absolute; width:720px; height:720px; border-radius:50%;
+    background:radial-gradient(closest-side, rgba(176,131,46,.22), transparent 70%);
+    top:-180px; inset-inline-end:-160px; pointer-events:none;
   }
-  .status{
-    display:inline-flex; align-items:center; gap:9px; margin-top:34px; padding:8px 15px;
-    border:1px solid var(--line); border-radius:999px; font-size:14px; color:#cfcac1
+  .hero-grid{display:grid; grid-template-columns:1.04fr .96fr; gap:56px; align-items:center; position:relative}
+  .hero-badge{
+    display:inline-flex; align-items:center; gap:9px; padding:7px 15px; border-radius:999px;
+    border:1px solid var(--line-dark); font-size:.83rem; color:var(--ivory-mute); margin-bottom:26px;
   }
-  .dot{width:7px; height:7px; border-radius:50%; background:var(--gold-light)}
+  .hero-badge .dot{width:7px; height:7px; border-radius:50%; background:var(--gold-light); box-shadow:0 0 10px var(--gold-light)}
+  .hero h1 .accent{color:var(--gold-light); font-style:italic}
+  .hero .lead{margin-top:22px}
+  .hero-ctas{display:flex; flex-wrap:wrap; gap:14px; margin-top:34px}
+  .hero-meta{margin-top:26px; font-size:.86rem; color:var(--ivory-mute); display:flex; flex-wrap:wrap; gap:6px 0}
+  .hero-meta span{white-space:nowrap}
+  .hero-meta span:not(:last-child)::after{content:"\00B7"; margin-inline:10px; color:var(--gold-light)}
 
-  /* padding-top/bottom, not the shorthand: the shorthand would reset .wrap's
-     horizontal padding to zero and let text touch the screen edge on phones. */
-  section{padding-top:64px; padding-bottom:64px; border-top:1px solid var(--line)}
-  .problem-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:28px; margin-top:38px}
-  .stat{font-size:clamp(30px,4vw,42px); font-weight:600; color:var(--gold-light); letter-spacing:-0.02em}
-  .stat + p{margin:8px 0 0; color:#b8b3aa; font-size:15.5px}
-
-  .features{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:44px 34px; margin-top:44px}
-  .feature img{
-    width:100%; max-width:270px; border-radius:16px; border:1px solid var(--line); display:block
+  .hero-visual{position:relative; display:flex; justify-content:center; padding-bottom:64px}
+  .phone{
+    width:min(310px,78vw); background:#0E0D0B; border-radius:46px; padding:11px;
+    box-shadow:0 40px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(246,245,242,.08);
+    position:relative; z-index:2;
   }
-  .feature h3{margin:22px 0 8px}
-  .feature p{margin:0; color:#b8b3aa; font-size:15.5px}
+  .phone img{border-radius:36px}
+  .chip{
+    position:absolute; z-index:3; background:var(--card); color:var(--ink);
+    border-radius:14px; padding:11px 16px; font-size:.83rem; font-weight:600;
+    box-shadow:0 16px 40px rgba(0,0,0,.35); display:flex; align-items:center; gap:9px;
+    animation:float 7s ease-in-out infinite;
+  }
+  .chip small{display:block; font-weight:500; color:var(--ink-mute); font-size:.72rem; line-height:1.3}
+  .chip .ico{width:32px; height:32px; border-radius:9px; background:var(--gold-wash); display:grid; place-items:center; color:var(--gold-deep); flex-shrink:0}
+  .chip-1{top:6.5%; inset-inline-start:max(0px, calc(50% - 300px)); animation-delay:0s}
+  .chip-2{bottom:24%; inset-inline-end:max(0px, calc(50% - 290px)); animation-delay:3.5s}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr; gap:48px}
+    .hero-visual{padding-bottom:48px}
+  }
 
-  video{width:100%; border-radius:14px; border:1px solid var(--line); margin-top:32px; background:#000}
+  /* stat band */
+  .stats{border-top:1px solid var(--line-dark); position:relative}
+  .stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:32px; padding-block:38px}
+  .stat b{display:block; font-family:var(--font-display); font-size:clamp(1.7rem,2.6vw,2.2rem); font-weight:600; color:var(--gold-light)}
+  .stat span{font-size:.87rem; color:var(--ivory-mute); line-height:1.5; display:block; margin-top:4px}
+  .stats .src{padding-bottom:20px; font-size:.72rem; color:rgba(181,176,166,.55)}
+  @media (max-width:860px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
 
-  .team{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:32px; margin-top:38px}
-  .person .avatar{width:92px; height:92px; border-radius:50%; display:block; margin-bottom:16px}
-  .person h3{margin-bottom:4px}
-  .person .role{color:var(--gold-light); font-size:14px; letter-spacing:.05em; text-transform:uppercase; font-weight:600}
-  .person p{color:#b8b3aa; font-size:15.5px; margin:12px 0 0}
+  /* ============ problem ============ */
+  .problem-cards{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:52px}
+  .p-card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:30px 28px;
+  }
+  .p-card .ico{width:44px; height:44px; border-radius:13px; background:var(--gold-wash); color:var(--gold-deep); display:grid; place-items:center; margin-bottom:18px}
+  .p-card h3{font-size:1.18rem; margin-bottom:9px}
+  .p-card p{font-size:.95rem; color:var(--ink-soft)}
+  @media (max-width:860px){.problem-cards{grid-template-columns:1fr}}
 
-  footer{border-top:1px solid var(--line); padding-top:44px; padding-bottom:60px; color:var(--muted); font-size:14.5px}
-  footer a{text-decoration:none}
-  .contact{font-size:19px; margin:0 0 10px}
+  /* ============ features ============ */
+  .feature-row{
+    display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,90px);
+    align-items:center; padding-block:clamp(44px,6vw,72px);
+  }
+  .feature-row+.feature-row{border-top:1px solid var(--line)}
+  .feature-row:nth-child(even) .f-visual{order:-1}
+  .f-visual{display:flex; justify-content:center}
+  .f-visual .phone{
+    width:min(280px,74vw); box-shadow:0 30px 70px rgba(27,26,23,.18), 0 0 0 1px rgba(27,26,23,.05);
+  }
+  .f-copy h3{font-size:clamp(1.45rem,2.4vw,1.9rem); margin-bottom:14px}
+  .f-copy>p{color:var(--ink-soft); max-width:46ch}
+  .f-list{list-style:none; padding:0; margin-top:22px; display:grid; gap:12px}
+  .f-list li{display:flex; gap:12px; align-items:flex-start; font-size:.95rem; color:var(--ink-soft)}
+  .f-list svg{flex-shrink:0; margin-top:3px; color:var(--gold)}
+  .rtl-sample{
+    margin-top:22px; padding:16px 20px; background:var(--paper-2); border-radius:14px;
+    font-size:1.05rem; direction:rtl; text-align:right; color:var(--ink);
+  }
+  .rtl-sample small{display:block; direction:ltr; text-align:left; color:var(--ink-mute); font-size:.75rem; margin-top:6px}
+  @media (max-width:860px){
+    .feature-row{grid-template-columns:1fr; gap:36px}
+    .feature-row:nth-child(even) .f-visual{order:0}
+  }
 
-  @media (max-width:640px){
-    .hero{padding-top:56px; padding-bottom:44px}
-    section{padding-top:48px; padding-bottom:48px}
-    .nav .right{display:none}
+  /* ============ steps ============ */
+  .steps{background:var(--paper-2)}
+  .steps-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:52px}
+  .step{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:32px 28px; position:relative}
+  .step .num{
+    font-family:var(--font-display); font-size:2.6rem; font-weight:600; color:var(--gold-light);
+    line-height:1; margin-bottom:16px;
+  }
+  .step h3{font-size:1.15rem; margin-bottom:9px}
+  .step p{font-size:.94rem; color:var(--ink-soft)}
+  .steps-note{
+    margin-top:34px; padding:20px 26px; border-inline-start:3px solid var(--gold);
+    background:var(--gold-wash); border-radius:0 14px 14px 0; font-size:.95rem; color:var(--ink-soft); max-width:760px;
+  }
+  @media (max-width:860px){.steps-grid{grid-template-columns:1fr}}
+
+  /* ============ demo ============ */
+  .demo video{width:100%; border-radius:var(--radius); border:1px solid var(--line-dark); background:#000; margin-top:44px}
+
+  /* ============ security ============ */
+  .sec-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:52px}
+  .sec-card{border:1px solid var(--line); background:var(--card); border-radius:var(--radius); padding:30px 28px; display:flex; gap:20px}
+  .sec-card .ico{width:46px; height:46px; border-radius:13px; background:var(--ink); color:var(--gold-light); display:grid; place-items:center; flex-shrink:0}
+  .sec-card h3{font-size:1.12rem; margin-bottom:8px}
+  .sec-card p{font-size:.93rem; color:var(--ink-soft)}
+  @media (max-width:860px){.sec-grid{grid-template-columns:1fr}}
+
+  /* ============ team ============ */
+  .team-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:52px}
+  .t-card{border:1px solid var(--line); background:var(--card); border-radius:var(--radius); padding:34px 30px}
+  .t-card img{width:88px; height:88px; border-radius:50%; margin-bottom:20px}
+  .t-card h3{font-size:1.25rem}
+  .t-card .role{color:var(--gold-deep); font-size:.82rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; margin:5px 0 14px}
+  .t-card p{font-size:.94rem; color:var(--ink-soft)}
+  .t-card a{font-size:.9rem; font-weight:600; display:inline-block; margin-top:14px}
+  @media (max-width:720px){.team-grid{grid-template-columns:1fr}}
+
+  /* ============ faq ============ */
+  .faq{background:var(--paper-2)}
+  .faq-list{margin-top:44px; max-width:820px}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{
+    cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;
+    gap:20px; padding:22px 4px; font-weight:600; font-size:1.02rem;
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .mark{
+    flex-shrink:0; width:26px; height:26px; border-radius:50%; border:1px solid var(--line);
+    display:grid; place-items:center; color:var(--gold-deep); transition:transform .2s ease; font-weight:500;
+  }
+  .faq details[open] summary .mark{transform:rotate(45deg)}
+  .faq details p{padding:0 4px 24px; color:var(--ink-soft); font-size:.96rem; max-width:64ch}
+
+  /* ============ cta ============ */
+  .cta{text-align:center; position:relative; overflow:hidden}
+  .cta::before{
+    content:""; position:absolute; width:640px; height:640px; border-radius:50%;
+    background:radial-gradient(closest-side, rgba(176,131,46,.18), transparent 70%);
+    bottom:-320px; left:50%; transform:translateX(-50%); pointer-events:none;
+  }
+  .cta h2{font-size:clamp(2.1rem,4.4vw,3.2rem)}
+  .cta h2 em{color:var(--gold-light)}
+  .cta .lead{margin:20px auto 0}
+  .cta .btn{margin-top:36px}
+  .cta .fine{margin-top:18px; font-size:.85rem; color:var(--ivory-mute)}
+
+  /* ============ footer ============ */
+  footer{background:var(--ink); color:var(--ivory-mute); border-top:1px solid var(--line-dark)}
+  .foot{display:flex; flex-wrap:wrap; gap:32px; justify-content:space-between; padding-block:44px; font-size:.88rem}
+  .foot .brand{color:var(--ivory)}
+  .foot-col p{max-width:38ch; margin-top:12px}
+  .foot a{color:var(--ivory-mute)}
+  .foot a:hover{color:var(--ivory)}
+  .legal{border-top:1px solid var(--line-dark); padding-block:22px; font-size:.78rem; color:rgba(181,176,166,.6)}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1; transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1; transform:none; transition:none}
+    .chip{animation:none}
   }
 </style>
 </head>
 <body>
 
-<header>
+<header id="top">
   <div class="wrap nav">
-    <img src="assets/icon.png" alt="Zadi">
-    <strong>Zadi</strong>
-    <span class="right">United Arab Emirates</span>
+    <a class="brand" href="#top">
+      <img src="assets/icon.png" alt="">
+      <strong>Zadi</strong>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#product">Product</a>
+      <a href="#how">How it works</a>
+      <a href="#security">Security</a>
+      <a href="#team">Team</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-gold" href="mailto:hello@zadi.ae?subject=Zadi%20early%20access&body=Hi%20Zadi%20team%2C%20I%27d%20like%20to%20join%20the%20beta.%20My%20phone%20is%3A%20">Get early access</a>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="mobile-panel">
+    <a href="#product">Product</a>
+    <a href="#how">How it works</a>
+    <a href="#security">Security</a>
+    <a href="#team">Team</a>
+    <a href="#faq">FAQ</a>
   </div>
 </header>
 
-<div class="wrap hero">
-  <h1>Every card you own,<br>one app that thinks about all of them.</h1>
-  <p class="lead">
-    Zadi is a bank-agnostic credit card app for UAE residents. See everything you owe
-    and earn in one place, know which card to swipe before you pay, and stop losing
-    money to due dates you never saw coming.
-  </p>
-  <p class="mission">Make every dirham go further.</p>
-  <div class="status"><span class="dot"></span> Live MVP, in private beta on iOS and Android</div>
+<main>
+
+<!-- ================= HERO ================= -->
+<div class="dark hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-badge"><span class="dot"></span> In private beta across the UAE</span>
+      <h1>Every card you own, one app that <span class="accent">thinks</span> about all of them.</h1>
+      <p class="lead">
+        Zadi brings your credit cards from every bank into one place: what you owe,
+        when it is due, which card to swipe, and what your rewards are really worth.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="mailto:hello@zadi.ae?subject=Zadi%20early%20access&body=Hi%20Zadi%20team%2C%20I%27d%20like%20to%20join%20the%20beta.%20My%20phone%20is%3A%20">
+          Get early access
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#demo">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+          Watch the demo
+        </a>
+      </div>
+      <p class="hero-meta">
+        <span>Free during beta</span><span>iPhone and Android</span><span>English and <span lang="ar">العربية</span></span>
+      </p>
+    </div>
+    <div class="hero-visual">
+      <div class="chip chip-1">
+        <span class="ico">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+        </span>
+        <span>Emirates NBD due in 13 days<small>Reminder set, AED 252</small></span>
+      </div>
+      <div class="chip chip-2">
+        <span class="ico">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.6L20 10l-6.1 1.4L12 17l-1.9-5.6L4 10l6.1-1.4z"/></svg>
+        </span>
+        <span>Use the Mashreq card<small>3% cashback on shopping</small></span>
+      </div>
+      <div class="phone"><img src="assets/home.png" alt="Zadi home screen: spend this month, credit used, and due dates across four banks" width="1170" height="2532" fetchpriority="high"></div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat"><b>43%</b><span>of UAE consumers hold two or more credit cards</span></div>
+        <div class="stat"><b>20+</b><span>banks issuing over 200 card products</span></div>
+        <div class="stat"><b>AED 230+</b><span>the fee for one missed due date, before interest</span></div>
+        <div class="stat"><b>12 to 24</b><span>months before typical reward points expire</span></div>
+      </div>
+      <p class="src">Sources: YouGov UAE survey; published UAE bank fee schedules and reward program terms.</p>
+    </div>
+  </div>
 </div>
 
-<section class="wrap">
-  <p class="eyebrow">The problem</p>
-  <h2>No bank can show you a card it didn't issue.</h2>
-  <div class="problem-grid">
-    <div>
-      <div class="stat">43%</div>
-      <p>of UAE consumers hold two or more credit cards, spread across more than 20 banks and 200 card products.</p>
-    </div>
-    <div>
-      <div class="stat">AED 230+</div>
-      <p>the cost of a single missed due date, plus interest that backdates to the day you spent, at 30 to 48% APR.</p>
-    </div>
-    <div>
-      <div class="stat">12 to 24</div>
-      <p>months before typical UAE reward points expire, usually without anyone noticing they were there.</p>
-    </div>
-  </div>
-</section>
-
-<section class="wrap">
-  <p class="eyebrow">The product</p>
-  <h2>One place that understands all of your cards.</h2>
-  <div class="features">
-    <div class="feature">
-      <img src="assets/home.png" alt="Zadi home screen showing combined spend and upcoming due dates">
-      <h3>Everything in one view</h3>
-      <p>Combined spend, utilisation and every due date across every bank, on one screen.</p>
-    </div>
-    <div class="feature">
-      <img src="assets/which.png" alt="Zadi recommending which card to use for a purchase">
-      <h3>Know which card to swipe</h3>
-      <p>Ask before you pay and Zadi ranks your cards for that specific purchase, in dirhams.</p>
-    </div>
-    <div class="feature">
-      <img src="assets/optimize.png" alt="Zadi showing rewards left on the table">
-      <h3>See what you left behind</h3>
-      <p>The rewards you missed by paying with the wrong card, counted honestly, in real money.</p>
-    </div>
-    <div class="feature">
-      <img src="assets/arabic.png" alt="Zadi running in Arabic with a right-to-left layout">
-      <h3>Arabic, done properly</h3>
-      <p>Full right-to-left layout, localised dates and dirham formatting. Built in from day one.</p>
+<!-- ================= PROBLEM ================= -->
+<section id="problem">
+  <div class="wrap">
+    <p class="kicker reveal">The problem</p>
+    <h2 class="reveal">No bank can show you a card it didn't issue.</h2>
+    <p class="lead reveal" style="margin-top:18px">
+      A multi-card wallet in the UAE usually spans two or three banks. Each app shows its own
+      slice, so the full picture lives in your head. That is where the money leaks.
+    </p>
+    <div class="problem-cards">
+      <div class="p-card reveal">
+        <span class="ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+        <h3>Missed due dates</h3>
+        <p>One forgotten date costs AED 230 to 300 in fees, and interest at 30 to 48% APR backdated to the day you spent.</p>
+      </div>
+      <div class="p-card reveal">
+        <span class="ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19"/></svg></span>
+        <h3>The wrong card</h3>
+        <p>Reward rates differ by card and by category. Paying with whichever card is on top quietly costs real dirhams every month.</p>
+      </div>
+      <div class="p-card reveal">
+        <span class="ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
+        <h3>Expired rewards</h3>
+        <p>Points usually lapse after 12 to 24 months. Most people find out after it happens, if they find out at all.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="wrap">
-  <p class="eyebrow">Watch it work</p>
-  <h2>Ninety seconds, no slides.</h2>
-  <video controls preload="none" poster="assets/home.png">
-    <source src="assets/zadi-demo.mp4" type="video/mp4">
-    Your browser does not support embedded video.
-  </video>
-</section>
+<!-- ================= FEATURES ================= -->
+<section id="product" style="padding-top:0">
+  <div class="wrap">
+    <p class="kicker reveal">The product</p>
+    <h2 class="reveal">One place that understands your whole wallet.</h2>
 
-<section class="wrap">
-  <p class="eyebrow">Why now</p>
-  <h2>The UAE is opening its banking rails, and credit cards are already in scope.</h2>
-  <p style="color:#b8b3aa; max-width:65ch; margin-top:20px">
-    The Central Bank's Open Finance framework names credit cards explicitly, alongside
-    accounts, loans and insurance, and participation is mandatory for every licensed
-    institution. It arrives in sequence: accounts and payment initiation went first, with
-    ADCB, CBD, FAB and ADIB certified through 2025 and 2026. Zadi runs on manual entry today
-    by design, which builds the habit early, and the data layer is already abstracted so live
-    bank data replaces manual entry without rebuilding the product. Zadi never holds or moves
-    customer funds.
-  </p>
-</section>
-
-<section class="wrap">
-  <p class="eyebrow">Team</p>
-  <h2>Two senior operators who have launched things from zero.</h2>
-  <div class="team">
-    <div class="person">
-      <img class="avatar" src="assets/hussein.png" alt="Hussein Tawfik">
-      <h3>Hussein Tawfik</h3>
-      <div class="role">Co-founder &amp; CEO</div>
-      <p>
-        Regional Director at Talabat. Previously BCG, where he designed a financial
-        institution's digital operating model, plus Meta and P&amp;G, across twelve years
-        in consumer, technology and strategy.
-        <a href="https://linkedin.com/in/hatawfik">LinkedIn</a>
-      </p>
+    <div class="feature-row">
+      <div class="f-copy reveal">
+        <h3>The whole picture, on one screen</h3>
+        <p>Open Zadi and see what a bank app can never show you: everything, together.</p>
+        <ul class="f-list">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Combined spend and credit used across every bank</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Every due date in one list, with reminders that leave time to act</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Spending by category, month against month</li>
+        </ul>
+      </div>
+      <div class="f-visual reveal"><div class="phone"><img src="assets/home.png" alt="Zadi home screen showing combined spend and upcoming due dates" width="1170" height="2532"></div></div>
     </div>
-    <div class="person">
-      <img class="avatar" src="assets/mostafa.png" alt="Mostafa Asseel">
-      <h3>Mostafa Asseel</h3>
-      <div class="role">Co-founder &amp; COO</div>
-      <p>
-        Ex-Program Lead at Amazon MENA, where he ran the zero-to-one launch of Amazon FBA
-        in Egypt and cut bad debt by 68%. Previously MAF Retail (Carrefour) in Business
-        Management &amp; Strategy, plus Microsoft and Oracle. AWS Certified AI Practitioner.
-        <a href="https://www.linkedin.com/in/mostafa-asseel/">LinkedIn</a>
-      </p>
+
+    <div class="feature-row">
+      <div class="f-copy reveal">
+        <h3>The right card, before you pay</h3>
+        <p>At the till, tell Zadi what you are buying. It ranks your cards for that purchase and shows the answer in dirhams, not points jargon.</p>
+        <ul class="f-list">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Category bonuses, caps and card limits all accounted for</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Miles and cashback compared on real value, so 5x miles stops beating 4% cash on name alone</li>
+        </ul>
+      </div>
+      <div class="f-visual reveal"><div class="phone"><img src="assets/which.png" alt="Zadi recommending which card to use for a dining purchase" width="1170" height="2532"></div></div>
+    </div>
+
+    <div class="feature-row">
+      <div class="f-copy reveal">
+        <h3>The money you didn't have to lose</h3>
+        <p>Zadi counts what the wrong card cost you: the gap between the rewards you earned and the rewards your own wallet could have earned.</p>
+        <ul class="f-list">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Tracked per category over 30 days, 3 months and 6 months</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>An honest number in AED, so the habit change pays for itself</li>
+        </ul>
+      </div>
+      <div class="f-visual reveal"><div class="phone"><img src="assets/optimize.png" alt="Zadi showing rewards missed by using the wrong card" width="1170" height="2532"></div></div>
+    </div>
+
+    <div class="feature-row">
+      <div class="f-copy reveal">
+        <h3>Arabic, built in from the first version</h3>
+        <p>The entire app mirrors right-to-left: layout, dates, amounts and all. Not a translated menu bolted onto an English app.</p>
+        <div class="rtl-sample" lang="ar">
+          مرحبًا، عمر. أنفقت ٣٬٤٦٩ د.إ هذا الشهر عبر ٤ بطاقات.
+          <small>"Hello, Omar. You spent AED 3,469 this month across 4 cards."</small>
+        </div>
+      </div>
+      <div class="f-visual reveal"><div class="phone"><img src="assets/arabic.png" alt="Zadi running in Arabic with a fully mirrored right-to-left layout" width="1170" height="2532"></div></div>
     </div>
   </div>
 </section>
 
-<footer class="wrap">
-  <p class="contact"><a href="mailto:hello@zadi.ae">hello@zadi.ae</a></p>
-  <p>Zadi &middot; United Arab Emirates &middot; Payment initiation only. Zadi never holds or moves customer funds.</p>
+<!-- ================= HOW IT WORKS ================= -->
+<section id="how" class="steps">
+  <div class="wrap">
+    <p class="kicker reveal">How it works</p>
+    <h2 class="reveal">Set up in minutes. No bank logins.</h2>
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="num">1</div>
+        <h3>Add your cards</h3>
+        <p>Bank, card name, limit, due date. That is all Zadi needs. You never hand over banking credentials, because there is nothing to hand them to.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">2</div>
+        <h3>Log as you spend</h3>
+        <p>A purchase takes seconds to enter, and Zadi suggests the category itself. The more it sees, the sharper its answers get.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">3</div>
+        <h3>Zadi keeps watch</h3>
+        <p>Reminders arrive before every due date. The best-card answer is a tap away. The missed-rewards counter keeps score.</p>
+      </div>
+    </div>
+    <p class="steps-note reveal">
+      Today Zadi runs on entries you control, by design. The UAE Central Bank's open finance
+      framework already covers credit cards, and as the rollout reaches them, live bank data
+      will replace typing inside the same app.
+    </p>
+  </div>
+</section>
+
+<!-- ================= DEMO ================= -->
+<section id="demo" class="dark demo">
+  <div class="wrap">
+    <p class="kicker reveal">The demo</p>
+    <h2 class="reveal">Ninety seconds, no slides.</h2>
+    <video class="reveal" controls playsinline preload="metadata" poster="assets/demo-poster.jpg">
+      <source src="assets/zadi-demo.mp4" type="video/mp4">
+      Your browser does not support embedded video.
+    </video>
+  </div>
+</section>
+
+<!-- ================= SECURITY ================= -->
+<section id="security">
+  <div class="wrap">
+    <p class="kicker reveal">Security and trust</p>
+    <h2 class="reveal">Serious about the boring parts.</h2>
+    <div class="sec-grid">
+      <div class="sec-card reveal">
+        <span class="ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3.5v5c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5v-5z"/></svg></span>
+        <div>
+          <h3>Your money never touches Zadi</h3>
+          <p>Zadi shows, reminds and recommends. It never holds or moves funds. When in-app settlement arrives, it will run as payment initiation through the UAE's regulated open finance rails.</p>
+        </div>
+      </div>
+      <div class="sec-card reveal">
+        <span class="ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></span>
+        <div>
+          <h3>Nothing to phish</h3>
+          <p>Adding a card takes a name, a limit and a due date. No online banking password, no OTPs, no screen scraping. There is simply no credential to steal.</p>
+        </div>
+      </div>
+      <div class="sec-card reveal">
+        <span class="ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></span>
+        <div>
+          <h3>Your data stays yours</h3>
+          <p>Every record is isolated to your account with row-level security, encrypted in transit and at rest. Your data is not for sale, and deleting your account deletes it.</p>
+        </div>
+      </div>
+      <div class="sec-card reveal">
+        <span class="ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9.5 21v-6h5v6"/></svg></span>
+        <div>
+          <h3>Built for the regulated era</h3>
+          <p>The Central Bank's open finance framework names credit cards in its scope. Zadi's architecture was designed from day one to plug into those rails as they open.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEAM ================= -->
+<section id="team" style="padding-top:0">
+  <div class="wrap">
+    <p class="kicker reveal">The founders</p>
+    <h2 class="reveal">We kept paying late fees with money in the bank.</h2>
+    <p class="lead reveal" style="margin-top:18px">
+      Between us we carry more cards than we like to admit. Zadi is the tool we needed
+      and could not download.
+    </p>
+    <div class="team-grid">
+      <div class="t-card reveal">
+        <img loading="lazy" src="assets/hussein.png" alt="Hussein Tawfik" width="176" height="176">
+        <h3>Hussein Tawfik</h3>
+        <div class="role">Co-founder and CEO</div>
+        <p>Regional Director at Talabat. Previously BCG, where he designed a financial institution's digital operating model, plus Meta and P&amp;G, across twelve years in consumer, technology and strategy.</p>
+        <a href="https://linkedin.com/in/hatawfik" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="t-card reveal">
+        <img loading="lazy" src="assets/mostafa.png" alt="Mostafa Asseel" width="176" height="176">
+        <h3>Mostafa Asseel</h3>
+        <div class="role">Co-founder and COO</div>
+        <p>Ex-Program Lead at Amazon MENA, where he ran the zero-to-one launch of Amazon FBA in Egypt. Previously MAF Retail (Carrefour) in Business Management &amp; Strategy, plus Microsoft and Oracle.</p>
+        <a href="https://www.linkedin.com/in/mostafa-asseel/" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" class="faq">
+  <div class="wrap">
+    <p class="kicker reveal">FAQ</p>
+    <h2 class="reveal">Questions people ask us.</h2>
+    <div class="faq-list reveal">
+      <details>
+        <summary>Does Zadi connect to my bank account?<span class="mark">+</span></summary>
+        <p>Not yet, and that is deliberate. You add each card in about a minute with its name, limit and due date, and log spending as you go. No banking credentials are involved anywhere. When the UAE's open finance rollout reaches credit cards, live bank data will replace manual entry inside the same app.</p>
+      </details>
+      <details>
+        <summary>Is my money at risk?<span class="mark">+</span></summary>
+        <p>No. Zadi never holds or moves money. It is a view of your cards, a reminder engine and a recommendation tool. Future in-app payments will work as payment initiation through the Central Bank's regulated rails, where the money moves bank to bank and never through Zadi.</p>
+      </details>
+      <details>
+        <summary>What does it cost?<span class="mark">+</span></summary>
+        <p>Nothing during the beta. A Pro tier with the full optimizer and deeper analytics is planned at AED 39 per month once the product is out of beta, and the core view of your cards and due dates will stay free.</p>
+      </details>
+      <details>
+        <summary>Which phones does it work on?<span class="mark">+</span></summary>
+        <p>iPhone and Android, in English and Arabic with a fully mirrored right-to-left layout.</p>
+      </details>
+      <details>
+        <summary>Is Zadi giving me financial advice?<span class="mark">+</span></summary>
+        <p>No. Zadi shows you information about your own cards: dates, rates and reward maths. It does not provide regulated financial advice, and card suggestions are informational comparisons of products you already hold.</p>
+      </details>
+      <details>
+        <summary>How do I get in?<span class="mark">+</span></summary>
+        <p>Email <a href="mailto:hello@zadi.ae">hello@zadi.ae</a> and tell us which phone you use. We onboard testers in small batches so every one of them gets our attention.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="dark cta">
+  <div class="wrap">
+    <h2 class="reveal">Make every dirham <em>go further</em>.</h2>
+    <p class="lead reveal" style="max-width:44ch">
+      We are onboarding UAE testers in small batches. Tell us which phone you use,
+      and the next invite goes to you.
+    </p>
+    <a class="btn btn-gold reveal" href="mailto:hello@zadi.ae?subject=Zadi%20early%20access&body=Hi%20Zadi%20team%2C%20I%27d%20like%20to%20join%20the%20beta.%20My%20phone%20is%3A%20">
+      Request an invite
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <p class="fine reveal">hello@zadi.ae &middot; United Arab Emirates</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-col">
+      <a class="brand" href="#top"><img src="assets/icon.png" alt=""><strong>Zadi</strong></a>
+      <p>Every credit card you own, one app that thinks about all of them.</p>
+    </div>
+    <div class="foot-col">
+      <p style="margin-top:0"><a href="#product">Product</a><br><a href="#how">How it works</a><br><a href="#security">Security</a><br><a href="#faq">FAQ</a></p>
+    </div>
+    <div class="foot-col">
+      <p style="margin-top:0"><a href="mailto:hello@zadi.ae">hello@zadi.ae</a><br><a href="https://linkedin.com/in/hatawfik" rel="noopener">Hussein on LinkedIn</a><br><a href="https://www.linkedin.com/in/mostafa-asseel/" rel="noopener">Mostafa on LinkedIn</a></p>
+    </div>
+  </div>
+  <div class="wrap legal">
+    Zadi is an information tool. It does not provide regulated financial advice, and it never holds or moves customer funds.
+    &copy; 2026 Zadi &middot; United Arab Emirates
+  </div>
 </footer>
+
+<script>
+  // Sticky nav shadow + mobile menu
+  var header = document.querySelector('header');
+  var menuBtn = document.querySelector('.menu-btn');
+  addEventListener('scroll', function(){ header.classList.toggle('scrolled', scrollY > 8); }, {passive:true});
+  menuBtn.addEventListener('click', function(){
+    var open = header.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.mobile-panel a').forEach(function(a){
+    a.addEventListener('click', function(){ header.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); });
+  });
+
+  // Scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
 
 </body>
 </html>
