@@ -42,6 +42,7 @@
   .wrap{max-width:var(--wrap); margin-inline:auto; padding-inline:24px}
 
   h1,h2,h3{font-family:var(--font-display); font-weight:600; line-height:1.12; letter-spacing:-0.01em}
+  p,li{text-wrap:pretty}
   h1{font-size:clamp(2.5rem,5.6vw,4.1rem)}
   h2{font-size:clamp(1.9rem,3.6vw,2.75rem)}
   h3{font-size:1.35rem}
@@ -162,10 +163,13 @@
 
   /* ============ features ============ */
   .feature-row{
-    display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,90px);
+    display:grid; grid-template-columns:1.25fr 1fr; gap:clamp(36px,5vw,64px);
     align-items:center; padding-block:clamp(44px,6vw,72px);
   }
   .feature-row+.feature-row{border-top:1px solid var(--line)}
+  /* Mirrored rows swap the phone to the start; the wide column must follow the
+     copy across, or the text ends up in the narrow half. */
+  .feature-row:nth-child(even){grid-template-columns:1fr 1.25fr}
   .feature-row:nth-child(even) .f-visual{order:-1}
   .f-visual{display:flex; justify-content:center}
   .f-visual .phone{
@@ -409,7 +413,7 @@
         <p>At the till, tell Zadi what you are buying. It ranks your cards for that purchase and shows the answer in dirhams.</p>
         <ul class="f-list">
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Category bonuses, caps and card limits all accounted for</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Miles and cashback compared on real value, so 5x miles stops beating 4% cash on name alone</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Miles and cashback compared in dirham value, so 5x miles stops beating 4% cash on name alone</li>
         </ul>
       </div>
       <div class="f-visual reveal"><div class="phone"><img src="assets/which.png" alt="Zadi recommending which card to use for a dining purchase" width="1170" height="2532"></div></div>
@@ -421,7 +425,7 @@
         <p>Zadi counts what the wrong card cost you: the gap between the rewards you earned and the rewards your own wallet could have earned.</p>
         <ul class="f-list">
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Tracked per category over 30 days, 3 months and 6 months</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>An honest number in AED, so the habit change pays for itself</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Counted in AED, so you know what changing the habit is worth</li>
         </ul>
       </div>
       <div class="f-visual reveal"><div class="phone"><img src="assets/optimize.png" alt="Zadi showing rewards missed by using the wrong card" width="1170" height="2532"></div></div>
@@ -429,8 +433,8 @@
 
     <div class="feature-row">
       <div class="f-copy reveal">
-        <h3>Arabic, built in from the first version</h3>
-        <p>The entire app mirrors right-to-left: layout, dates, amounts and all, designed bilingual from its first version.</p>
+        <h3>Zadi, in Arabic</h3>
+        <p>Switch language once and everything follows: every screen, every date, every dirham amount.</p>
         <div class="rtl-sample" lang="ar">
           مرحبًا، عمر. أنفقت ٣٬٤٦٩ د.إ هذا الشهر عبر ٤ بطاقات.
           <small>"Hello, Omar. You spent AED 3,469 this month across 4 cards."</small>
@@ -482,7 +486,7 @@
 <section id="security">
   <div class="wrap">
     <p class="kicker reveal">Security and trust</p>
-    <h2 class="reveal">Serious about the boring parts.</h2>
+    <h2 class="reveal">How Zadi handles your money and your data.</h2>
     <div class="sec-grid">
       <div class="sec-card reveal">
         <span class="ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3.5v5c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5v-5z"/></svg></span>
