@@ -32,6 +32,7 @@
     --line:rgba(27,26,23,.12); --line-dark:rgba(246,245,242,.14);
     --ivory:#F6F5F2; --ivory-mute:#B5B0A6;
     --radius:20px; --wrap:1120px;
+    --nav-h:72px; --section-pad:clamp(72px,9vw,120px); --anchor-gap:48px;
     --font-display:"Fraunces",Georgia,serif;
     --font-body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   }
@@ -59,7 +60,17 @@
   .lead{font-size:clamp(1.1rem,1.6vw,1.25rem); color:var(--ink-soft); max-width:62ch}
   .dark{background:var(--ink); color:var(--ivory)}
   .dark .lead{color:var(--ivory-mute)}
-  section{padding-block:clamp(72px,9vw,120px); scroll-margin-top:76px}
+  /* Anchor landing must not depend on a section's own top padding, or clicking
+     a nav link drops the heading in a different place per section. The offset
+     cancels the padding, so every heading lands --anchor-gap below the nav. */
+  section{
+    padding-block:var(--section-pad);
+    scroll-margin-top:calc(var(--nav-h) + var(--anchor-gap) - var(--section-pad));
+  }
+  /* Sections that run straight into the next one drop their bottom padding
+     instead of the next section's top padding, keeping the rhythm identical
+     while every section keeps a uniform top padding for anchoring. */
+  #problem, #security{padding-bottom:0}
 
   /* buttons */
   .btn{
@@ -394,7 +405,7 @@
 </section>
 
 <!-- ================= FEATURES ================= -->
-<section id="product" style="padding-top:0">
+<section id="product">
   <div class="wrap">
     <p class="kicker reveal">The product</p>
     <h2 class="reveal">One place that understands your whole wallet.</h2>
@@ -526,7 +537,7 @@
 </section>
 
 <!-- ================= TEAM ================= -->
-<section id="team" style="padding-top:0">
+<section id="team">
   <div class="wrap">
     <p class="kicker reveal">The founders</p>
     <h2 class="reveal">We kept paying late fees with money in the bank.</h2>
