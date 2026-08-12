@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get early access | Zadi</title>
+<meta name="description" content="Request early access to Zadi, the app that brings every credit card you own into one place.">
+<link rel="icon" href="assets/zadi-mark.png">
+<link rel="apple-touch-icon" href="assets/zadi-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B1A17; --ink-soft:#4A463F; --paper:#FAF8F4; --card:#FFFFFF;
+    --gold:#B0832E; --gold-deep:#7E5C1D; --gold-light:#D8B777;
+    --line:rgba(27,26,23,.14); --line-dark:rgba(246,245,242,.14);
+    --ivory:#F6F5F2; --ivory-mute:#B5B0A6;
+  }
+  *{box-sizing:border-box; margin:0}
+  body{
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:var(--ink); color:var(--ivory); font-size:17px; line-height:1.7;
+    min-height:100vh; display:flex; flex-direction:column;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; height:auto; display:block}
+  header{border-bottom:1px solid var(--line-dark)}
+  .nav{max-width:1120px; margin-inline:auto; padding:18px 24px; display:flex; align-items:center}
+  .brand{display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--ivory)}
+  .brand img{width:34px; height:34px; border-radius:9px}
+  .brand strong{font-family:"Fraunces",Georgia,serif; font-size:1.35rem; font-weight:600}
+  .back{margin-inline-start:auto; color:var(--ivory-mute); text-decoration:none; font-size:.95rem}
+  .back:hover{color:var(--ivory)}
+
+  main{flex:1; display:grid; place-items:center; padding:56px 24px; position:relative; overflow:hidden}
+  main::before{
+    content:""; position:absolute; width:700px; height:700px; border-radius:50%;
+    background:radial-gradient(closest-side, rgba(176,131,46,.18), transparent 70%);
+    top:-260px; inset-inline-end:-200px; pointer-events:none;
+  }
+  .panel{width:min(560px,100%); position:relative}
+  .panel h1{font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:clamp(2rem,5vw,2.7rem); line-height:1.15}
+  .panel .sub{color:var(--ivory-mute); margin-top:14px; font-size:1.05rem}
+
+  form{
+    margin-top:36px; background:var(--paper); color:var(--ink);
+    border-radius:22px; padding:clamp(26px,4.5vw,40px);
+    box-shadow:0 40px 90px rgba(0,0,0,.5);
+  }
+  label{display:block; font-weight:600; font-size:.98rem; margin-bottom:8px}
+  .field{margin-bottom:24px}
+  input[type=text], input[type=email], select{
+    width:100%; padding:14px 16px; font:inherit; font-size:1rem; color:var(--ink);
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+  }
+  input:focus, select:focus{outline:2px solid var(--gold); outline-offset:1px; border-color:var(--gold)}
+  .radio-row{display:flex; gap:12px}
+  .radio-row label{
+    flex:1; display:flex; align-items:center; justify-content:center; gap:9px;
+    border:1px solid var(--line); border-radius:12px; padding:13px; cursor:pointer;
+    font-weight:600; font-size:1rem; margin:0; background:var(--card);
+  }
+  .radio-row input{accent-color:var(--gold)}
+  .radio-row label:has(input:checked){border-color:var(--gold); background:#F6EEDD}
+  .hint{font-size:.88rem; color:var(--ink-soft); font-weight:400}
+  button{
+    width:100%; padding:16px; border:0; border-radius:999px; cursor:pointer;
+    background:var(--gold); color:#161511; font:inherit; font-weight:700; font-size:1.05rem;
+    box-shadow:0 10px 28px rgba(176,131,46,.35); transition:background .15s ease, transform .15s ease;
+  }
+  button:hover{background:#BE8F35; transform:translateY(-1px)}
+  .fine{margin-top:18px; font-size:.88rem; color:var(--ink-soft); text-align:center}
+  footer{border-top:1px solid var(--line-dark); padding:20px 24px; text-align:center; font-size:.85rem; color:var(--ivory-mute)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html"><img src="assets/zadi-mark.png" alt=""><strong>Zadi</strong></a>
+    <a class="back" href="index.html">Back to zadi.ae</a>
+  </div>
+</header>
+
+<main>
+  <div class="panel">
+    <h1>Get early access.</h1>
+    <p class="sub">We onboard testers in small batches so every one of them gets our attention. Leave your details and the next invite goes to you.</p>
+
+    <form action="https://formsubmit.co/hello@zadi.ae" method="POST">
+      <input type="hidden" name="_subject" value="Zadi early access request">
+      <input type="hidden" name="_next" value="https://zadi.ae/thanks.html">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your name">
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+      </div>
+
+      <div class="field">
+        <label>Your phone</label>
+        <div class="radio-row">
+          <label><input type="radio" name="phone" value="iPhone" required> iPhone</label>
+          <label><input type="radio" name="phone" value="Android"> Android</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="cards">How many credit cards do you carry? <span class="hint">(optional)</span></label>
+        <select id="cards" name="cards">
+          <option value="" selected>Choose one</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4 or more</option>
+        </select>
+      </div>
+
+      <button type="submit">Request an invite</button>
+      <p class="fine">We use your details to send the invite and nothing else.</p>
+    </form>
+  </div>
+</main>
+
+<footer>Zadi never holds or moves customer funds &middot; hello@zadi.ae</footer>
+
+</body>
+</html>

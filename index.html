@@ -11,12 +11,13 @@
 <meta property="og:url" content="https://zadi.ae">
 <meta property="og:image" content="https://zadi.ae/assets/demo-poster.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/icon.png">
+<link rel="icon" href="assets/zadi-mark.png">
+<link rel="apple-touch-icon" href="assets/zadi-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Zadi","url":"https://zadi.ae","logo":"https://zadi.ae/assets/icon.png","email":"hello@zadi.ae","description":"A bank-agnostic credit card app for UAE residents.","address":{"@type":"PostalAddress","addressCountry":"AE"}}
+{"@context":"https://schema.org","@type":"Organization","name":"Zadi","url":"https://zadi.ae","logo":"https://zadi.ae/assets/zadi-mark.png","email":"hello@zadi.ae","description":"A bank-agnostic credit card app for UAE residents.","address":{"@type":"PostalAddress","addressCountry":"AE"}}
 </script>
 <style>
   :root{
@@ -45,7 +46,7 @@
   h2{font-size:clamp(1.9rem,3.6vw,2.75rem)}
   h3{font-size:1.35rem}
   .kicker{
-    font-size:.78rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+    font-size:.82rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
     color:var(--gold-deep); margin-bottom:16px;
   }
   .dark .kicker{color:var(--gold-light)}
@@ -79,7 +80,7 @@
   .brand img{width:34px; height:34px; border-radius:9px}
   .brand strong{font-family:var(--font-display); font-size:1.35rem; font-weight:600}
   .nav-links{display:flex; gap:28px}
-  .nav-links a{color:var(--ink-soft); text-decoration:none; font-size:.94rem; font-weight:500}
+  .nav-links a{color:var(--ink-soft); text-decoration:none; font-size:.97rem; font-weight:500}
   .nav-links a:hover{color:var(--ink)}
   .nav .btn{padding:10px 20px; font-size:.9rem}
   .menu-btn{display:none; background:none; border:0; padding:8px; cursor:pointer; color:var(--ink)}
@@ -107,13 +108,13 @@
   .hero-grid{display:grid; grid-template-columns:1.04fr .96fr; gap:56px; align-items:center; position:relative}
   .hero-badge{
     display:inline-flex; align-items:center; gap:9px; padding:7px 15px; border-radius:999px;
-    border:1px solid var(--line-dark); font-size:.83rem; color:var(--ivory-mute); margin-bottom:26px;
+    border:1px solid var(--line-dark); font-size:.9rem; color:var(--ivory-mute); margin-bottom:26px;
   }
   .hero-badge .dot{width:7px; height:7px; border-radius:50%; background:var(--gold-light); box-shadow:0 0 10px var(--gold-light)}
   .hero h1 .accent{color:var(--gold-light); font-style:italic}
   .hero .lead{margin-top:22px}
   .hero-ctas{display:flex; flex-wrap:wrap; gap:14px; margin-top:34px}
-  .hero-meta{margin-top:26px; font-size:.86rem; color:var(--ivory-mute); display:flex; flex-wrap:wrap; gap:6px 0}
+  .hero-meta{margin-top:26px; font-size:.95rem; color:var(--ivory-mute); display:flex; flex-wrap:wrap; gap:6px 0}
   .hero-meta span{white-space:nowrap}
   .hero-meta span:not(:last-child)::after{content:"\00B7"; margin-inline:10px; color:var(--gold-light)}
 
@@ -126,11 +127,11 @@
   .phone img{border-radius:36px}
   .chip{
     position:absolute; z-index:3; background:var(--card); color:var(--ink);
-    border-radius:14px; padding:11px 16px; font-size:.83rem; font-weight:600;
+    border-radius:14px; padding:11px 16px; font-size:.88rem; font-weight:600;
     box-shadow:0 16px 40px rgba(0,0,0,.35); display:flex; align-items:center; gap:9px;
     animation:float 7s ease-in-out infinite;
   }
-  .chip small{display:block; font-weight:500; color:var(--ink-mute); font-size:.72rem; line-height:1.3}
+  .chip small{display:block; font-weight:500; color:var(--ink-mute); font-size:.8rem; line-height:1.3}
   .chip .ico{width:32px; height:32px; border-radius:9px; background:var(--gold-wash); display:grid; place-items:center; color:var(--gold-deep); flex-shrink:0}
   .chip-1{top:6.5%; inset-inline-start:max(0px, calc(50% - 300px)); animation-delay:0s}
   .chip-2{bottom:24%; inset-inline-end:max(0px, calc(50% - 290px)); animation-delay:3.5s}
@@ -144,8 +145,8 @@
   .stats{border-top:1px solid var(--line-dark); position:relative}
   .stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:32px; padding-block:38px}
   .stat b{display:block; font-family:var(--font-display); font-size:clamp(1.7rem,2.6vw,2.2rem); font-weight:600; color:var(--gold-light)}
-  .stat span{font-size:.87rem; color:var(--ivory-mute); line-height:1.5; display:block; margin-top:4px}
-  .stats .src{padding-bottom:20px; font-size:.72rem; color:rgba(181,176,166,.55)}
+  .stat span{font-size:.95rem; color:var(--ivory-mute); line-height:1.5; display:block; margin-top:4px}
+  .stats .src{padding-bottom:20px; font-size:.8rem; color:rgba(181,176,166,.55)}
   @media (max-width:860px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
 
   /* ============ problem ============ */
@@ -156,7 +157,7 @@
   }
   .p-card .ico{width:44px; height:44px; border-radius:13px; background:var(--gold-wash); color:var(--gold-deep); display:grid; place-items:center; margin-bottom:18px}
   .p-card h3{font-size:1.18rem; margin-bottom:9px}
-  .p-card p{font-size:.95rem; color:var(--ink-soft)}
+  .p-card p{font-size:1rem; color:var(--ink-soft)}
   @media (max-width:860px){.problem-cards{grid-template-columns:1fr}}
 
   /* ============ features ============ */
@@ -173,13 +174,13 @@
   .f-copy h3{font-size:clamp(1.45rem,2.4vw,1.9rem); margin-bottom:14px}
   .f-copy>p{color:var(--ink-soft); max-width:46ch}
   .f-list{list-style:none; padding:0; margin-top:22px; display:grid; gap:12px}
-  .f-list li{display:flex; gap:12px; align-items:flex-start; font-size:.95rem; color:var(--ink-soft)}
+  .f-list li{display:flex; gap:12px; align-items:flex-start; font-size:1rem; color:var(--ink-soft)}
   .f-list svg{flex-shrink:0; margin-top:3px; color:var(--gold)}
   .rtl-sample{
     margin-top:22px; padding:16px 20px; background:var(--paper-2); border-radius:14px;
     font-size:1.05rem; direction:rtl; text-align:right; color:var(--ink);
   }
-  .rtl-sample small{display:block; direction:ltr; text-align:left; color:var(--ink-mute); font-size:.75rem; margin-top:6px}
+  .rtl-sample small{display:block; direction:ltr; text-align:left; color:var(--ink-mute); font-size:.85rem; margin-top:6px}
   @media (max-width:860px){
     .feature-row{grid-template-columns:1fr; gap:36px}
     .feature-row:nth-child(even) .f-visual{order:0}
@@ -194,7 +195,7 @@
     line-height:1; margin-bottom:16px;
   }
   .step h3{font-size:1.15rem; margin-bottom:9px}
-  .step p{font-size:.94rem; color:var(--ink-soft)}
+  .step p{font-size:1rem; color:var(--ink-soft)}
   .steps-note{
     margin-top:34px; padding:20px 26px; border-inline-start:3px solid var(--gold);
     background:var(--gold-wash); border-radius:0 14px 14px 0; font-size:.95rem; color:var(--ink-soft); max-width:760px;
@@ -209,7 +210,7 @@
   .sec-card{border:1px solid var(--line); background:var(--card); border-radius:var(--radius); padding:30px 28px; display:flex; gap:20px}
   .sec-card .ico{width:46px; height:46px; border-radius:13px; background:var(--ink); color:var(--gold-light); display:grid; place-items:center; flex-shrink:0}
   .sec-card h3{font-size:1.12rem; margin-bottom:8px}
-  .sec-card p{font-size:.93rem; color:var(--ink-soft)}
+  .sec-card p{font-size:1rem; color:var(--ink-soft)}
   @media (max-width:860px){.sec-grid{grid-template-columns:1fr}}
 
   /* ============ team ============ */
@@ -217,9 +218,9 @@
   .t-card{border:1px solid var(--line); background:var(--card); border-radius:var(--radius); padding:34px 30px}
   .t-card img{width:88px; height:88px; border-radius:50%; margin-bottom:20px}
   .t-card h3{font-size:1.25rem}
-  .t-card .role{color:var(--gold-deep); font-size:.82rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; margin:5px 0 14px}
-  .t-card p{font-size:.94rem; color:var(--ink-soft)}
-  .t-card a{font-size:.9rem; font-weight:600; display:inline-block; margin-top:14px}
+  .t-card .role{color:var(--gold-deep); font-size:.85rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; margin:5px 0 14px}
+  .t-card p{font-size:1rem; color:var(--ink-soft)}
+  .t-card a{font-size:.95rem; font-weight:600; display:inline-block; margin-top:14px}
   @media (max-width:720px){.team-grid{grid-template-columns:1fr}}
 
   /* ============ faq ============ */
@@ -228,7 +229,7 @@
   .faq details{border-bottom:1px solid var(--line)}
   .faq summary{
     cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;
-    gap:20px; padding:22px 4px; font-weight:600; font-size:1.02rem;
+    gap:20px; padding:22px 4px; font-weight:600; font-size:1.08rem;
   }
   .faq summary::-webkit-details-marker{display:none}
   .faq summary .mark{
@@ -236,7 +237,7 @@
     display:grid; place-items:center; color:var(--gold-deep); transition:transform .2s ease; font-weight:500;
   }
   .faq details[open] summary .mark{transform:rotate(45deg)}
-  .faq details p{padding:0 4px 24px; color:var(--ink-soft); font-size:.96rem; max-width:64ch}
+  .faq details p{padding:0 4px 24px; color:var(--ink-soft); font-size:1rem; max-width:64ch}
 
   /* ============ cta ============ */
   .cta{text-align:center; position:relative; overflow:hidden}
@@ -249,16 +250,16 @@
   .cta h2 em{color:var(--gold-light)}
   .cta .lead{margin:20px auto 0}
   .cta .btn{margin-top:36px}
-  .cta .fine{margin-top:18px; font-size:.85rem; color:var(--ivory-mute)}
+  .cta .fine{margin-top:18px; font-size:.92rem; color:var(--ivory-mute)}
 
   /* ============ footer ============ */
   footer{background:var(--ink); color:var(--ivory-mute); border-top:1px solid var(--line-dark)}
-  .foot{display:flex; flex-wrap:wrap; gap:32px; justify-content:space-between; padding-block:44px; font-size:.88rem}
+  .foot{display:flex; flex-wrap:wrap; gap:32px; justify-content:space-between; padding-block:44px; font-size:.95rem}
   .foot .brand{color:var(--ivory)}
   .foot-col p{max-width:38ch; margin-top:12px}
   .foot a{color:var(--ivory-mute)}
   .foot a:hover{color:var(--ivory)}
-  .legal{border-top:1px solid var(--line-dark); padding-block:22px; font-size:.78rem; color:rgba(181,176,166,.6)}
+  .legal{border-top:1px solid var(--line-dark); padding-block:22px; font-size:.85rem; color:rgba(181,176,166,.6)}
 
   /* reveal */
   .reveal{opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease}
@@ -275,7 +276,7 @@
 <header id="top">
   <div class="wrap nav">
     <a class="brand" href="#top">
-      <img src="assets/icon.png" alt="">
+      <img src="assets/zadi-mark.png" alt="">
       <strong>Zadi</strong>
     </a>
     <nav class="nav-links" aria-label="Sections">
@@ -285,7 +286,7 @@
       <a href="#team">Team</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-gold" href="mailto:hello@zadi.ae?subject=Zadi%20early%20access&body=Hi%20Zadi%20team%2C%20I%27d%20like%20to%20join%20the%20beta.%20My%20phone%20is%3A%20">Get early access</a>
+    <a class="btn btn-gold" href="join.html">Get early access</a>
     <button class="menu-btn" aria-label="Menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
@@ -312,7 +313,7 @@
         when it is due, which card to swipe, and what your rewards are really worth.
       </p>
       <div class="hero-ctas">
-        <a class="btn btn-gold" href="mailto:hello@zadi.ae?subject=Zadi%20early%20access&body=Hi%20Zadi%20team%2C%20I%27d%20like%20to%20join%20the%20beta.%20My%20phone%20is%3A%20">
+        <a class="btn btn-gold" href="join.html">
           Get early access
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -405,7 +406,7 @@
     <div class="feature-row">
       <div class="f-copy reveal">
         <h3>The right card, before you pay</h3>
-        <p>At the till, tell Zadi what you are buying. It ranks your cards for that purchase and shows the answer in dirhams, not points jargon.</p>
+        <p>At the till, tell Zadi what you are buying. It ranks your cards for that purchase and shows the answer in dirhams.</p>
         <ul class="f-list">
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Category bonuses, caps and card limits all accounted for</li>
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Miles and cashback compared on real value, so 5x miles stops beating 4% cash on name alone</li>
@@ -429,7 +430,7 @@
     <div class="feature-row">
       <div class="f-copy reveal">
         <h3>Arabic, built in from the first version</h3>
-        <p>The entire app mirrors right-to-left: layout, dates, amounts and all. Not a translated menu bolted onto an English app.</p>
+        <p>The entire app mirrors right-to-left: layout, dates, amounts and all, designed bilingual from its first version.</p>
         <div class="rtl-sample" lang="ar">
           مرحبًا، عمر. أنفقت ٣٬٤٦٩ د.إ هذا الشهر عبر ٤ بطاقات.
           <small>"Hello, Omar. You spent AED 3,469 this month across 4 cards."</small>
@@ -444,29 +445,24 @@
 <section id="how" class="steps">
   <div class="wrap">
     <p class="kicker reveal">How it works</p>
-    <h2 class="reveal">Set up in minutes. No bank logins.</h2>
+    <h2 class="reveal">Set up in minutes.</h2>
     <div class="steps-grid">
       <div class="step reveal">
         <div class="num">1</div>
-        <h3>Add your cards</h3>
-        <p>Bank, card name, limit, due date. That is all Zadi needs. You never hand over banking credentials, because there is nothing to hand them to.</p>
+        <h3>Connect your cards</h3>
+        <p>Link your banks through Al Tareq, the Central Bank's open finance rails, with consent you approve at your bank and can revoke any time. Prefer to type? Add a card manually in under a minute.</p>
       </div>
       <div class="step reveal">
         <div class="num">2</div>
-        <h3>Log as you spend</h3>
-        <p>A purchase takes seconds to enter, and Zadi suggests the category itself. The more it sees, the sharper its answers get.</p>
+        <h3>Zadi maps your wallet</h3>
+        <p>Every card's balance, limit, due date and reward program lands in one place and stays current. Spending sorts itself into categories.</p>
       </div>
       <div class="step reveal">
         <div class="num">3</div>
         <h3>Zadi keeps watch</h3>
-        <p>Reminders arrive before every due date. The best-card answer is a tap away. The missed-rewards counter keeps score.</p>
+        <p>Reminders arrive before every due date. The best-card answer is a tap away. Settle any card from any account without leaving the app.</p>
       </div>
     </div>
-    <p class="steps-note reveal">
-      Today Zadi runs on entries you control, by design. The UAE Central Bank's open finance
-      framework already covers credit cards, and as the rollout reaches them, live bank data
-      will replace typing inside the same app.
-    </p>
   </div>
 </section>
 
@@ -492,14 +488,14 @@
         <span class="ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3.5v5c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5v-5z"/></svg></span>
         <div>
           <h3>Your money never touches Zadi</h3>
-          <p>Zadi shows, reminds and recommends. It never holds or moves funds. When in-app settlement arrives, it will run as payment initiation through the UAE's regulated open finance rails.</p>
+          <p>Settlement runs as payment initiation through the UAE's regulated open finance rails: money moves from your bank to the card issuer with your approval. Zadi never holds or moves funds itself.</p>
         </div>
       </div>
       <div class="sec-card reveal">
         <span class="ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></span>
         <div>
-          <h3>Nothing to phish</h3>
-          <p>Adding a card takes a name, a limit and a due date. No online banking password, no OTPs, no screen scraping. There is simply no credential to steal.</p>
+          <h3>Consent you control</h3>
+          <p>Bank connections run through Al Tareq, so you approve access at your own bank and can revoke it there any time. Your banking password is never shared with Zadi, and no screen scraping is involved.</p>
         </div>
       </div>
       <div class="sec-card reveal">
@@ -512,8 +508,8 @@
       <div class="sec-card reveal">
         <span class="ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9.5 21v-6h5v6"/></svg></span>
         <div>
-          <h3>Built for the regulated era</h3>
-          <p>The Central Bank's open finance framework names credit cards in its scope. Zadi's architecture was designed from day one to plug into those rails as they open.</p>
+          <h3>Built on the regulated rails</h3>
+          <p>Zadi runs on the Central Bank's open finance framework, which names credit cards in its scope, under its consent rules for data sharing and payment initiation.</p>
         </div>
       </div>
     </div>
@@ -534,14 +530,14 @@
         <img loading="lazy" src="assets/hussein.png" alt="Hussein Tawfik" width="176" height="176">
         <h3>Hussein Tawfik</h3>
         <div class="role">Co-founder and CEO</div>
-        <p>Regional Director at Talabat. Previously BCG, where he designed a financial institution's digital operating model, plus Meta and P&amp;G, across twelve years in consumer, technology and strategy.</p>
+        <p>13+ years of experience across consumer, technology and strategy at Talabat, BCG, Meta and P&amp;G.</p>
         <a href="https://linkedin.com/in/hatawfik" rel="noopener">LinkedIn</a>
       </div>
       <div class="t-card reveal">
         <img loading="lazy" src="assets/mostafa.png" alt="Mostafa Asseel" width="176" height="176">
         <h3>Mostafa Asseel</h3>
         <div class="role">Co-founder and COO</div>
-        <p>Ex-Program Lead at Amazon MENA, where he ran the zero-to-one launch of Amazon FBA in Egypt. Previously MAF Retail (Carrefour) in Business Management &amp; Strategy, plus Microsoft and Oracle.</p>
+        <p>13+ years of experience across operations, growth and strategy at Amazon, Carrefour (MAF), Microsoft and Oracle.</p>
         <a href="https://www.linkedin.com/in/mostafa-asseel/" rel="noopener">LinkedIn</a>
       </div>
     </div>
@@ -556,15 +552,15 @@
     <div class="faq-list reveal">
       <details>
         <summary>Does Zadi connect to my bank account?<span class="mark">+</span></summary>
-        <p>Not yet, and that is deliberate. You add each card in about a minute with its name, limit and due date, and log spending as you go. No banking credentials are involved anywhere. When the UAE's open finance rollout reaches credit cards, live bank data will replace manual entry inside the same app.</p>
+        <p>Yes, through Al Tareq, the Central Bank's open finance rails. You approve access at your own bank and can revoke it there at any time. Prefer not to connect? Add any card manually in about a minute and Zadi works the same way.</p>
       </details>
       <details>
         <summary>Is my money at risk?<span class="mark">+</span></summary>
-        <p>No. Zadi never holds or moves money. It is a view of your cards, a reminder engine and a recommendation tool. Future in-app payments will work as payment initiation through the Central Bank's regulated rails, where the money moves bank to bank and never through Zadi.</p>
+        <p>No. Zadi never holds or moves money. Settlement works as payment initiation through the Central Bank's regulated rails: the money moves from your bank to the card issuer with your approval, and never through Zadi.</p>
       </details>
       <details>
         <summary>What does it cost?<span class="mark">+</span></summary>
-        <p>Nothing during the beta. A Pro tier with the full optimizer and deeper analytics is planned at AED 39 per month once the product is out of beta, and the core view of your cards and due dates will stay free.</p>
+        <p>The core view of your cards and due dates is free. Zadi Pro, with the full optimizer and deeper analytics, is AED 39 per month. During the beta, everything is free.</p>
       </details>
       <details>
         <summary>Which phones does it work on?<span class="mark">+</span></summary>
@@ -576,7 +572,7 @@
       </details>
       <details>
         <summary>How do I get in?<span class="mark">+</span></summary>
-        <p>Email <a href="mailto:hello@zadi.ae">hello@zadi.ae</a> and tell us which phone you use. We onboard testers in small batches so every one of them gets our attention.</p>
+        <p><a href="join.html">Request an invite</a> and tell us which phone you use. We onboard testers in small batches so every one of them gets our attention.</p>
       </details>
     </div>
   </div>
@@ -590,7 +586,7 @@
       We are onboarding UAE testers in small batches. Tell us which phone you use,
       and the next invite goes to you.
     </p>
-    <a class="btn btn-gold reveal" href="mailto:hello@zadi.ae?subject=Zadi%20early%20access&body=Hi%20Zadi%20team%2C%20I%27d%20like%20to%20join%20the%20beta.%20My%20phone%20is%3A%20">
+    <a class="btn btn-gold reveal" href="join.html">
       Request an invite
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
@@ -603,7 +599,7 @@
 <footer>
   <div class="wrap foot">
     <div class="foot-col">
-      <a class="brand" href="#top"><img src="assets/icon.png" alt=""><strong>Zadi</strong></a>
+      <a class="brand" href="#top"><img src="assets/zadi-mark.png" alt=""><strong>Zadi</strong></a>
       <p>Every credit card you own, one app that thinks about all of them.</p>
     </div>
     <div class="foot-col">
