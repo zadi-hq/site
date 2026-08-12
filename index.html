@@ -116,13 +116,16 @@
   }
 
   /* ============ hero ============ */
-  .hero{position:relative; overflow:hidden; padding-block:clamp(72px,9vw,116px) 0}
+  .hero{position:relative; overflow:hidden; padding-block:clamp(48px,6vw,88px) 0}
   .hero::before{
     content:""; position:absolute; width:720px; height:720px; border-radius:50%;
     background:radial-gradient(closest-side, rgba(176,131,46,.22), transparent 70%);
     top:-180px; inset-inline-end:-160px; pointer-events:none;
   }
-  .hero-grid{display:grid; grid-template-columns:1.04fr .96fr; gap:56px; align-items:center; position:relative}
+  /* start, not center: the phone is ~645px tall, so centering the copy against
+     it pushed the headline 157px below the nav and shoved the buttons toward
+     the fold on a laptop. Both columns now begin at the same y. */
+  .hero-grid{display:grid; grid-template-columns:1.04fr .96fr; gap:56px; align-items:start; position:relative}
   .hero-badge{
     display:inline-flex; align-items:center; gap:9px; padding:7px 15px; border-radius:999px;
     border:1px solid var(--line-dark); font-size:.9rem; color:var(--ivory-mute); margin-bottom:26px;
@@ -153,8 +156,18 @@
   .chip-1{top:6.5%; inset-inline-start:max(0px, calc(50% - 300px)); animation-delay:0s}
   .chip-2{bottom:24%; inset-inline-end:max(0px, calc(50% - 290px)); animation-delay:3.5s}
   @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  /* Short laptop viewports: tighten the hero so the primary action stays
+     above the fold instead of being clipped by a few pixels. */
+  @media (min-width:961px) and (max-height:850px){
+    .hero{padding-block:44px 0}
+    .hero h1{font-size:clamp(2.3rem,4.4vw,3.5rem)}
+    .hero .lead{margin-top:16px}
+    .hero-ctas{margin-top:26px}
+    .hero-meta{margin-top:20px}
+  }
+
   @media (max-width:960px){
-    .hero-grid{grid-template-columns:1fr; gap:48px}
+    .hero-grid{grid-template-columns:1fr; gap:40px}
     .hero-visual{padding-bottom:48px}
   }
 
