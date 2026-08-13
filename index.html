@@ -242,6 +242,9 @@
 
   /* ============ demo ============ */
   .demo video{width:100%; border-radius:var(--radius); border:1px solid var(--line-dark); background:#000; margin-top:44px}
+  /* The vertical cut is 9:16: full width would tower past the screen, so it
+     stands at a phone-like height, centred. */
+  .demo video.portrait{width:auto; max-width:100%; max-height:80vh; margin-inline:auto; display:block}
 
   /* ============ security ============ */
   .sec-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:52px}
@@ -508,11 +511,24 @@
 <section id="demo" class="dark demo">
   <div class="wrap">
     <p class="kicker reveal">The demo</p>
-    <h2 class="reveal">The Zadi demo, in 90 seconds.</h2>
-    <video class="reveal" controls playsinline preload="metadata" poster="assets/demo-poster.jpg">
-      <source src="assets/zadi-demo.mp4" type="video/mp4">
+    <h2 class="reveal">Every screen, explained in under two minutes.</h2>
+    <video id="walkvid" class="reveal" controls playsinline preload="metadata" poster="assets/walk-poster-wide.jpg">
+      <source src="assets/zadi-walkthrough-wide.mp4" type="video/mp4">
       Your browser does not support embedded video.
     </video>
+    <script>
+      // Phones get the vertical cut, landscape screens the widescreen one.
+      // Chosen once at load; both files carry the same narration and scenes.
+      (function(){
+        var v = document.getElementById('walkvid');
+        if (matchMedia('(orientation: portrait)').matches) {
+          v.poster = 'assets/walk-poster-v.jpg';
+          v.querySelector('source').src = 'assets/zadi-walkthrough.mp4';
+          v.classList.add('portrait');
+          v.load();
+        }
+      })();
+    </script>
   </div>
 </section>
 
