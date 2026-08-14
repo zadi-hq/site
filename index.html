@@ -273,10 +273,21 @@
     gap:20px; padding:22px 4px; font-weight:600; font-size:1.12rem;
   }
   .faq summary::-webkit-details-marker{display:none}
+  /* The + is drawn, not typed. As a text glyph it centred on the font's em box
+     rather than on its own ink, which left it 3.8px low in a 26px circle, and
+     the 45deg rotation turned that into a diagonal shift on the x. Two bars
+     positioned from the centre are exact whatever the font does. */
   .faq summary .mark{
     flex-shrink:0; width:26px; height:26px; border-radius:50%; border:1px solid var(--line);
-    display:grid; place-items:center; color:var(--gold-deep); transition:transform .2s ease; font-weight:500;
+    position:relative; transition:transform .2s ease;
   }
+  .faq summary .mark::before,
+  .faq summary .mark::after{
+    content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    background:var(--gold-deep); border-radius:1px;
+  }
+  .faq summary .mark::before{width:9px; height:1.5px}
+  .faq summary .mark::after{width:1.5px; height:9px}
   .faq details[open] summary .mark{transform:rotate(45deg)}
   .faq details p{padding:0 4px 24px; color:var(--ink-soft); font-size:1.0625rem; max-width:70ch}
 
@@ -380,7 +391,7 @@
         </span>
         <span>Use the Mashreq card<small>3% cashback on shopping</small></span>
       </div>
-      <div class="phone"><img src="assets/home.png" alt="Zadi home screen: spend this month, credit used, and due dates across four banks" width="1170" height="2532" fetchpriority="high"></div>
+      <div class="phone"><img src="assets/home.png" alt="Zadi home screen: spend this month, credit used, and due dates across four banks" width="1290" height="2796" fetchpriority="high"></div>
     </div>
   </div>
   <div class="stats">
@@ -441,7 +452,7 @@
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Spending by category, month against month</li>
         </ul>
       </div>
-      <div class="f-visual reveal"><div class="phone"><img src="assets/home.png" alt="Zadi home screen showing combined spend and upcoming due dates" width="1170" height="2532"></div></div>
+      <div class="f-visual reveal"><div class="phone"><img src="assets/home.png" alt="Zadi home screen showing combined spend and upcoming due dates" width="1290" height="2796"></div></div>
     </div>
 
     <div class="feature-row">
@@ -453,7 +464,7 @@
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Miles and cashback compared in dirham value, so 5x miles stops beating 4% cash on name alone</li>
         </ul>
       </div>
-      <div class="f-visual reveal"><div class="phone"><img loading="lazy" decoding="async" src="assets/which.png" alt="Zadi recommending which card to use for a dining purchase" width="1170" height="2532"></div></div>
+      <div class="f-visual reveal"><div class="phone"><img loading="lazy" decoding="async" src="assets/which.png" alt="Zadi recommending which card to use for a dining purchase" width="1290" height="2796"></div></div>
     </div>
 
     <div class="feature-row">
@@ -465,7 +476,7 @@
           <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Counted in AED, so you know what changing the habit is worth</li>
         </ul>
       </div>
-      <div class="f-visual reveal"><div class="phone"><img loading="lazy" decoding="async" src="assets/optimize.png" alt="Zadi showing rewards missed by using the wrong card" width="1170" height="2532"></div></div>
+      <div class="f-visual reveal"><div class="phone"><img loading="lazy" decoding="async" src="assets/optimize.png" alt="Zadi showing rewards missed by using the wrong card" width="1290" height="2796"></div></div>
     </div>
 
     <div class="feature-row">
@@ -477,7 +488,7 @@
           <small>"Hello, Omar. You spent AED 3,469 this month across 4 cards."</small>
         </div>
       </div>
-      <div class="f-visual reveal"><div class="phone"><img loading="lazy" decoding="async" src="assets/arabic.png" alt="Zadi running in Arabic with a fully mirrored right-to-left layout" width="1170" height="2532"></div></div>
+      <div class="f-visual reveal"><div class="phone"><img loading="lazy" decoding="async" src="assets/arabic.png" alt="Zadi running in Arabic with a fully mirrored right-to-left layout" width="860" height="1864"></div></div>
     </div>
   </div>
 </section>
@@ -605,27 +616,27 @@
     <h2 class="reveal">Questions people ask us.</h2>
     <div class="faq-list reveal">
       <details>
-        <summary>Does Zadi connect to my bank account?<span class="mark">+</span></summary>
+        <summary>Does Zadi connect to my bank account?<span class="mark" aria-hidden="true"></span></summary>
         <p>Yes, through Al Tareq, the Central Bank's open finance rails. You approve access at your own bank and can revoke it there at any time. The connection and your data travel the Central Bank's infrastructure encrypted; Zadi never sees your banking login and has no access to your bank account. Prefer not to connect? Add any card manually in about a minute and Zadi works the same way.</p>
       </details>
       <details>
-        <summary>Is my money at risk?<span class="mark">+</span></summary>
+        <summary>Is my money at risk?<span class="mark" aria-hidden="true"></span></summary>
         <p>No. Zadi never holds or moves money. Settlement works as payment initiation through the Central Bank's regulated rails: the money moves from your bank to the card issuer with your approval, and never through Zadi.</p>
       </details>
       <details>
-        <summary>What does it cost?<span class="mark">+</span></summary>
+        <summary>What does it cost?<span class="mark" aria-hidden="true"></span></summary>
         <p>The core view of your cards and due dates is free. Zadi Pro, with the full optimizer and deeper analytics, is AED 39 per month. During the beta, everything is free.</p>
       </details>
       <details>
-        <summary>Which phones does it work on?<span class="mark">+</span></summary>
+        <summary>Which phones does it work on?<span class="mark" aria-hidden="true"></span></summary>
         <p>iPhone and Android, in English and Arabic with a fully mirrored right-to-left layout.</p>
       </details>
       <details>
-        <summary>Is Zadi giving me financial advice?<span class="mark">+</span></summary>
+        <summary>Is Zadi giving me financial advice?<span class="mark" aria-hidden="true"></span></summary>
         <p>No. Zadi shows you information about your own cards: dates, rates and reward maths. It does not provide regulated financial advice, and card suggestions are informational comparisons of products you already hold.</p>
       </details>
       <details>
-        <summary>How do I get in?<span class="mark">+</span></summary>
+        <summary>How do I get in?<span class="mark" aria-hidden="true"></span></summary>
         <p><a href="join.html">Request an invite</a> and tell us which phone you use. We onboard testers in small batches so every one of them gets our attention.</p>
       </details>
     </div>
