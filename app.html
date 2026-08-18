@@ -14,7 +14,7 @@
 <style>
   :root{
     --ink:#14233C; --ink-soft:#4E5D6E; --paper:#FAF8F4; --card:#FFFFFF;
-    --coral:#DA382B; --coral-deep:#C12C1F; --coral-light:#FF8274;
+    --coral:#D44418; --coral-deep:#C1370D; --coral-light:#FF8274;
     --line:rgba(20,35,60,.14); --line-dark:rgba(250,248,244,.14);
     --ivory:#FAF8F4; --ivory-mute:#A9B3BF; --green:#2F6B4F; --green-bg:#E7F1EA;
   }
@@ -37,7 +37,7 @@
   main{flex:1; display:grid; place-items:center; padding:48px 24px; position:relative; overflow:hidden}
   main::before{
     content:""; position:absolute; width:700px; height:700px; border-radius:50%;
-    background:radial-gradient(closest-side, rgba(218,56,43,.18), transparent 70%);
+    background:radial-gradient(closest-side, rgba(212,68,24,.18), transparent 70%);
     top:-260px; inset-inline-end:-200px; pointer-events:none;
   }
   .panel{width:min(560px,100%); position:relative}
@@ -64,13 +64,13 @@
     font-size:.9rem; font-weight:600; text-decoration:none; color:var(--ink);
     border:1px solid var(--line); border-radius:999px; padding:8px 16px; background:var(--card);
   }
-  .stores a:hover{border-color:var(--coral); background:#FCEAE9}
+  .stores a:hover{border-color:var(--coral); background:#FBEAE4}
   .open{
     display:block; width:100%; text-align:center; margin-top:12px; padding:16px;
     border-radius:999px; background:var(--coral); color:#FFFFFF; text-decoration:none;
-    font-weight:700; font-size:1.05rem; box-shadow:0 10px 28px rgba(218,56,43,.35);
+    font-weight:700; font-size:1.05rem; box-shadow:0 10px 28px rgba(212,68,24,.35);
   }
-  .open:hover{background:#C12C1F}
+  .open:hover{background:#C1370D}
 
   .askbox{margin-top:24px; border-top:1px solid var(--line); padding-top:24px}
   label{display:block; font-weight:600; font-size:.97rem; margin-bottom:8px}
@@ -87,7 +87,7 @@
     font-weight:600; font-size:.97rem; margin:0; background:var(--card);
   }
   .radio-row input{accent-color:var(--coral)}
-  .radio-row label:has(input:checked){border-color:var(--coral); background:#FCEAE9}
+  .radio-row label:has(input:checked){border-color:var(--coral); background:#FBEAE4}
   button{
     width:100%; padding:15px; border:0; border-radius:999px; cursor:pointer;
     background:var(--ink); color:var(--ivory); font:inherit; font-weight:700; font-size:1rem;
@@ -95,7 +95,7 @@
   button:hover{background:#1D3050}
   .fine{margin-top:14px; font-size:.86rem; color:var(--ink-soft); text-align:center}
   .callout{
-    background:#FCEAE9; border:1px solid var(--coral-light); border-radius:12px;
+    background:#FBEAE4; border:1px solid var(--coral-light); border-radius:12px;
     padding:13px 15px; margin-bottom:18px; font-size:.92rem; color:var(--ink-soft);
   }
   .callout strong{color:var(--ink)}

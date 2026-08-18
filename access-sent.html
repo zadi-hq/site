@@ -13,7 +13,7 @@
 <style>
   :root{
     --ink:#14233C; --ink-soft:#4E5D6E; --paper:#FAF8F4; --card:#FFFFFF;
-    --coral:#DA382B; --coral-light:#FF8274;
+    --coral:#D44418; --coral-light:#FF8274;
     --line:rgba(20,35,60,.14); --line-dark:rgba(250,248,244,.14);
     --ivory:#FAF8F4; --ivory-mute:#A9B3BF;
   }
@@ -32,7 +32,7 @@
   main{flex:1; display:grid; place-items:center; padding:56px 24px; position:relative; overflow:hidden}
   main::before{
     content:""; position:absolute; width:700px; height:700px; border-radius:50%;
-    background:radial-gradient(closest-side, rgba(218,56,43,.18), transparent 70%);
+    background:radial-gradient(closest-side, rgba(212,68,24,.18), transparent 70%);
     top:-260px; inset-inline-end:-200px; pointer-events:none;
   }
   .panel{width:min(560px,100%); position:relative; text-align:center}
@@ -49,9 +49,9 @@
   .open{
     display:block; text-align:center; margin-top:22px; padding:16px;
     border-radius:999px; background:var(--coral); color:#FFFFFF; text-decoration:none;
-    font-weight:700; font-size:1.03rem; box-shadow:0 10px 28px rgba(218,56,43,.35);
+    font-weight:700; font-size:1.03rem; box-shadow:0 10px 28px rgba(212,68,24,.35);
   }
-  .open:hover{background:#C12C1F}
+  .open:hover{background:#C1370D}
   .fine{margin-top:12px; font-size:.86rem; color:var(--ink-soft); text-align:center}
   .plain{color:var(--ivory-mute)}
   footer{border-top:1px solid var(--line-dark); padding:20px 24px; text-align:center; font-size:.85rem; color:var(--ivory-mute)}
