@@ -210,6 +210,36 @@
   .f-visual .phone{
     width:min(280px,74vw); box-shadow:0 30px 70px rgba(20,35,60,.18), 0 0 0 1px rgba(20,35,60,.05);
   }
+  /* Interactive tab explorer: one phone frame whose screen scrolls, with
+     arrows either side to move between the app's five tabs. */
+  .explorer{display:flex; align-items:center; justify-content:center; gap:28px; margin-top:48px}
+  .x-phone{width:min(300px,70vw); box-shadow:0 30px 70px rgba(20,35,60,.18), 0 0 0 1px rgba(20,35,60,.05)}
+  .x-scroll{
+    height:min(600px,68vh); overflow-y:auto; border-radius:36px; background:#F6F5F1;
+    -webkit-overflow-scrolling:touch; scrollbar-width:none;
+  }
+  .x-scroll::-webkit-scrollbar{display:none}
+  .x-scroll img{width:100%; height:auto; display:block; border-radius:0}
+  .x-arrow{
+    width:48px; height:48px; border-radius:50%; flex-shrink:0; cursor:pointer;
+    border:1px solid var(--line); background:var(--card); color:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color .2s, color .2s, transform .15s;
+  }
+  .x-arrow:hover{border-color:var(--coral); color:var(--coral)}
+  .x-arrow:active{transform:scale(.94)}
+  .x-caption{text-align:center; margin-top:22px}
+  .x-caption h3{font-family:var(--font-display); font-size:1.35rem; color:var(--ink)}
+  .x-caption p{color:var(--ink-soft); max-width:52ch; margin:8px auto 0; font-size:.98rem}
+  .x-caption .x-hint{color:var(--ink-mute); font-size:.85rem; margin-top:10px}
+  .x-dots{display:flex; gap:8px; justify-content:center; margin-bottom:12px}
+  .x-dot{width:8px; height:8px; border-radius:50%; background:var(--line); transition:background .2s}
+  .x-dot.on{background:var(--coral)}
+  @media (max-width:560px){
+    .explorer{gap:10px}
+    .x-arrow{width:40px; height:40px}
+    .x-phone{width:min(240px,60vw)}
+  }
   .f-copy h3{font-size:clamp(1.45rem,2.4vw,1.9rem); margin-bottom:14px}
   .f-copy>p{color:var(--ink-soft)}
   .f-list{list-style:none; padding:0; margin-top:22px; display:grid; gap:12px}
@@ -447,6 +477,62 @@
   <div class="wrap">
     <p class="kicker reveal">The product</p>
     <h2 class="reveal">One place that understands your whole wallet.</h2>
+    <p class="lead reveal" style="margin-top:18px">
+      Five tabs run the whole routine. Home shows what you have spent and what is due, Analytics
+      reads the month, Settle pays the cards, Optimize counts the rewards, and Discover checks the
+      market. Flip through them here, exactly as they look in the app.
+    </p>
+
+    <div class="explorer reveal">
+      <button class="x-arrow" id="xPrev" aria-label="Previous tab" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <div class="phone x-phone">
+        <div class="x-scroll" id="xScroll">
+          <img id="xShot" src="assets/tab-home.png" alt="Zadi Home tab, full screen" width="780">
+        </div>
+      </div>
+      <button class="x-arrow" id="xNext" aria-label="Next tab" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <div class="x-caption reveal" aria-live="polite">
+      <div class="x-dots" id="xDots"></div>
+      <h3 id="xName">Home</h3>
+      <p id="xDesc">Combined spend this month, how much credit you are using, every due date in order, and your cards at the bottom.</p>
+      <p class="x-hint">Scroll inside the phone to see the whole screen</p>
+    </div>
+    <script>
+    (function(){
+      var TABS=[
+        {img:'assets/tab-home.png', name:'Home', desc:'Combined spend this month, how much credit you are using, every due date in order, and your cards at the bottom.'},
+        {img:'assets/tab-analytics.png', name:'Analytics', desc:'Income against spending for the month, then the breakdown category by category, across every bank.'},
+        {img:'assets/tab-settle.png', name:'Settle', desc:'Every card’s amount due in one list. Pay the minimum or the full balance from any account; auto-settle pays each card on its due date.'},
+        {img:'assets/tab-optimize.png', name:'Optimize', desc:'What your purchases earned against what your own cards could have earned, in dirhams, purchase by purchase.'},
+        {img:'assets/tab-discover.png', name:'Discover', desc:'Cards on the market ranked against how you actually spend, with each card’s annual fee part of the math.'}
+      ];
+      var i=0;
+      var shot=document.getElementById('xShot'), scroll=document.getElementById('xScroll');
+      var name=document.getElementById('xName'), desc=document.getElementById('xDesc');
+      var dots=document.getElementById('xDots');
+      TABS.forEach(function(_,k){
+        var d=document.createElement('span'); d.className='x-dot'+(k===0?' on':''); dots.appendChild(d);
+      });
+      function show(k){
+        i=(k+TABS.length)%TABS.length;
+        var t=TABS[i];
+        shot.src=t.img;
+        shot.alt='Zadi '+t.name+' tab, full screen';
+        name.textContent=t.name;
+        desc.textContent=t.desc;
+        scroll.scrollTop=0;
+        Array.prototype.forEach.call(dots.children,function(d,k2){d.className='x-dot'+(k2===i?' on':'');});
+      }
+      document.getElementById('xPrev').addEventListener('click',function(){show(i-1);});
+      document.getElementById('xNext').addEventListener('click',function(){show(i+1);});
+      TABS.forEach(function(t){var im=new Image(); im.src=t.img;});
+    })();
+    </script>
 
     <div class="feature-row">
       <div class="f-copy reveal">
@@ -602,14 +688,14 @@
         <h3>Hussein Tawfik</h3>
         <div class="role">Co-founder and CEO</div>
         <p>13+ years of experience in leading organizations across consulting, technology and consumer goods, including Talabat, BCG, Meta and P&amp;G.</p>
-        <a href="https://linkedin.com/in/hatawfik" rel="noopener">LinkedIn</a>
+        <a href="https://linkedin.com/in/hatawfik" target="_blank" rel="noopener">LinkedIn</a>
       </div>
       <div class="t-card reveal">
         <img loading="lazy" src="assets/mostafa.png" alt="Mostafa Asseel" width="176" height="176">
         <h3>Mostafa Asseel</h3>
         <div class="role">Co-founder and COO</div>
         <p>13+ years of experience in leading organizations across e-commerce, retail and technology, including Amazon, Carrefour (MAF), Microsoft and Oracle.</p>
-        <a href="https://www.linkedin.com/in/mostafa-asseel/" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/mostafa-asseel/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </div>
@@ -677,7 +763,7 @@
       <p style="margin-top:0"><a href="#product">Product</a><br><a href="#how">How it works</a><br><a href="#security">Security</a><br><a href="#faq">FAQ</a></p>
     </div>
     <div class="foot-col">
-      <p style="margin-top:0"><a href="mailto:hello@zadi.ae">hello@zadi.ae</a><br><a href="https://linkedin.com/in/hatawfik" rel="noopener">Hussein on LinkedIn</a><br><a href="https://www.linkedin.com/in/mostafa-asseel/" rel="noopener">Mostafa on LinkedIn</a></p>
+      <p style="margin-top:0"><a href="mailto:hello@zadi.ae">hello@zadi.ae</a><br><a href="https://linkedin.com/in/hatawfik" target="_blank" rel="noopener">Hussein on LinkedIn</a><br><a href="https://www.linkedin.com/in/mostafa-asseel/" target="_blank" rel="noopener">Mostafa on LinkedIn</a></p>
     </div>
   </div>
   <div class="wrap legal">
