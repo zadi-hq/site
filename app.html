@@ -99,6 +99,16 @@
     padding:13px 15px; margin-bottom:18px; font-size:.92rem; color:var(--ink-soft);
   }
   .callout strong{color:var(--ink)}
+  .qrwrap{margin-top:16px; padding-top:16px; border-top:1px solid var(--line)}
+  .qrwrap h4{font-size:.95rem; font-weight:700; color:var(--ink); margin-bottom:6px}
+  .qrwrap p{font-size:.9rem; color:var(--ink-soft)}
+  .qrimg{
+    display:block; width:min(200px,52vw); height:auto; margin:14px auto 4px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; padding:12px;
+  }
+  .qrways{margin:12px 0 0; padding-inline-start:20px; font-size:.88rem; color:var(--ink-soft)}
+  .qrways li{margin-bottom:6px}
+  .qrways strong{color:var(--ink)}
   footer{border-top:1px solid var(--line-dark); padding:20px 24px; text-align:center; font-size:.85rem; color:var(--ivory-mute)}
 </style>
 </head>
@@ -142,9 +152,24 @@
         <div class="num">3</div>
         <div style="width:100%">
           <h3>Open Zadi</h3>
-          <p>If Expo Go says the project is not viewable, you have not been added yet. That is
-          what the form below is for.</p>
+          <p>If you have been approved, accept the invitation email from Expo first, then press
+          the button. If Expo Go says the project is not viewable, you have not been added yet.
+          That is what the form below is for.</p>
           <a class="open" href="exp://u.expo.dev/692a1056-327b-4d67-9c71-01d09bb54379?runtime-version=exposdk%3A54.0.0&amp;channel-name=preview">Open in Expo Go</a>
+
+          <div class="qrwrap">
+            <h4>If the button does nothing, use the code</h4>
+            <p>Some browsers refuse to hand a link to another app. The code works either way.</p>
+            <img class="qrimg" src="assets/tester-qr.png" alt="QR code that opens Zadi in Expo Go" width="900" height="900">
+            <ul class="qrways">
+              <li><strong>From another phone:</strong> point its camera at the code.</li>
+              <li><strong>On this iPhone:</strong> press and hold the code and tap the link that
+                appears. If nothing appears, save the image first, then press and hold it in Photos.</li>
+              <li><strong>On this Android phone:</strong> save the image, open it in Google Photos
+                and tap the Lens icon. On a recent Pixel or Samsung you can instead long-press the
+                home gesture and circle the code with Circle to Search.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
