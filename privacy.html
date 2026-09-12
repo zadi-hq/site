@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy | Zadi</title>
+<meta name="description" content="What Zadi stores, who else can see it, and how to get it back or delete it.">
+<link rel="canonical" href="https://zadi.ae/privacy.html">
+<link rel="icon" href="assets/zadi-mark.png">
+<link rel="apple-touch-icon" href="assets/zadi-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14233C; --ink-soft:#4E5D6E; --paper:#FAF8F4;
+    --coral:#D44418; --coral-deep:#C1370D; --coral-light:#FF8274;
+    --line:rgba(20,35,60,.14); --line-dark:rgba(250,248,244,.14);
+    --ivory:#FAF8F4; --ivory-mute:#A9B3BF;
+  }
+  *{box-sizing:border-box; margin:0}
+  body{
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:var(--paper); color:var(--ink); font-size:17px; line-height:1.7;
+    min-height:100vh; display:flex; flex-direction:column;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; height:auto; display:block}
+  a{color:var(--coral-deep)}
+
+  header{background:var(--ink); border-bottom:1px solid var(--line-dark)}
+  .nav{max-width:1120px; margin-inline:auto; padding:18px 24px; display:flex; align-items:center}
+  .brand{display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--ivory)}
+  .brand img{width:34px; height:34px; border-radius:9px}
+  .brand strong{font-family:"Fraunces",Georgia,serif; font-size:1.35rem; font-weight:600}
+  .back{margin-inline-start:auto; color:var(--ivory-mute); text-decoration:none; font-size:.95rem}
+  .back:hover{color:var(--ivory)}
+
+  main{flex:1; width:min(760px,100%); margin-inline:auto; padding:clamp(40px,7vw,72px) 24px}
+  h1{font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:clamp(2.1rem,5.4vw,2.9rem); line-height:1.15}
+  .updated{color:var(--ink-soft); font-size:.92rem; margin-top:14px}
+  .lede{margin-top:22px; font-size:1.08rem; color:var(--ink-soft)}
+
+  .summary{
+    margin-top:34px; background:#FFFFFF; border:1px solid var(--line);
+    border-radius:20px; padding:clamp(22px,4vw,30px);
+    box-shadow:0 18px 44px rgba(20,35,60,.07);
+  }
+  .summary h2{font-size:1.05rem; font-weight:700; margin-bottom:12px}
+  .summary ul{list-style:none; padding:0; display:grid; gap:11px}
+  .summary li{display:flex; gap:12px; align-items:flex-start; color:var(--ink-soft); font-size:1rem}
+  .summary svg{flex-shrink:0; margin-top:6px; color:var(--coral)}
+
+  h2.sec{
+    font-family:"Fraunces",Georgia,serif; font-weight:600;
+    font-size:clamp(1.4rem,3.2vw,1.7rem); margin-top:52px; scroll-margin-top:24px;
+  }
+  h3{font-size:1.03rem; font-weight:700; margin-top:26px}
+  p{margin-top:14px; color:var(--ink-soft)}
+  main ul.body{margin-top:14px; padding-inline-start:22px; color:var(--ink-soft)}
+  main ul.body li{margin-top:8px}
+  main ul.body li::marker{color:var(--coral)}
+  main strong{color:var(--ink)}
+
+  .note{
+    margin-top:22px; border-inline-start:3px solid var(--coral);
+    background:rgba(212,68,24,.05); border-radius:0 14px 14px 0;
+    padding:16px 20px; font-size:.98rem;
+  }
+  .note p{margin-top:0}
+  .note p + p{margin-top:10px}
+
+  table{border-collapse:collapse; width:100%; margin-top:18px; font-size:.96rem}
+  th,td{text-align:start; padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+  th{font-weight:700; font-size:.85rem; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-soft)}
+  td:first-child{white-space:nowrap; font-weight:600}
+  .table-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+
+  /* Three columns on a phone leave one word per line, so stack each row into
+     its own block and carry the column name in on a data-label. */
+  @media (max-width:600px){
+    table, tbody, tr, td{display:block}
+    thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+    tr{padding:18px 0; border-bottom:1px solid var(--line)}
+    tr:last-child{border-bottom:0}
+    td{border-bottom:0; padding:0}
+    td:first-child{white-space:normal; font-family:"Fraunces",Georgia,serif; font-size:1.15rem; font-weight:600}
+    td[data-label]{margin-top:10px; color:var(--ink-soft)}
+    td[data-label]::before{
+      content:attr(data-label); display:block;
+      font-size:.72rem; font-weight:700; letter-spacing:.06em;
+      text-transform:uppercase; color:var(--coral); margin-bottom:2px;
+    }
+  }
+
+  footer{background:var(--ink); color:var(--ivory-mute); border-top:1px solid var(--line-dark)}
+  .foot{max-width:1120px; margin-inline:auto; padding:22px 24px; text-align:center; font-size:.85rem}
+  .foot a{color:var(--ivory-mute)}
+  .foot a:hover{color:var(--ivory)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html"><img src="assets/zadi-mark.png" alt=""><strong>Zadi</strong></a>
+    <a class="back" href="index.html">About Zadi</a>
+  </div>
+</header>
+
+<main>
+  <h1>Privacy policy</h1>
+  <p class="updated">Last updated 12 September 2026</p>
+
+  <p class="lede">Zadi puts every credit card you own in one place, which means you are trusting us with a picture of your money. This page says what we hold, where it sits, who else can see it, and how to take it back.</p>
+
+  <div class="summary">
+    <h2>The short version</h2>
+    <ul>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg><span>We never ask for your full card number, CVV, PIN, bank password or OTP, so we cannot store them.</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Your records are readable only by your own account. Every table in our database enforces that rule in the database itself.</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg><span>The copy Zadi keeps on your phone for offline use is encrypted, with the key held in your device's keychain.</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg><span>We do not sell your data and we do not run advertising against it.</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Settings has one button that exports everything as a file and one that deletes it.</span></li>
+    </ul>
+  </div>
+
+  <div class="note">
+    <p><strong>Where Zadi is today.</strong> Zadi is in closed testing with invited users. Card and transaction details are entered by hand: the app holds no live connection to any bank, and it does not hold or move money.</p>
+    <p>This policy describes the app as it works now. When bank connections or payments arrive, they will need our own licensing to be in place first, this page will be updated before they are switched on, and nothing new starts without your consent.</p>
+  </div>
+
+  <h2 class="sec" id="who">Who we are</h2>
+  <p>Zadi is a credit card app built in the United Arab Emirates by Hussein Tawfik and Mostafa Asseel. For anything on this page, write to <a href="mailto:privacy@zadi.ae">privacy@zadi.ae</a> and one of us will answer.</p>
+
+  <h2 class="sec" id="what">What we hold</h2>
+  <p>Everything below is either something you typed into the app or something the app needs to run.</p>
+  <ul class="body">
+    <li><strong>Your account.</strong> The email address you sign in with, a display name if you set one, and your language, currency and appearance settings.</li>
+    <li><strong>Your cards.</strong> The bank, the nickname you give the card, the last four digits, the credit limit, and the statement and due dates you enter.</li>
+    <li><strong>Your money.</strong> Transactions and the categories you put them in, income you record, a monthly spending cap if you set one, and the card balances and payments you enter.</li>
+    <li><strong>What you send us.</strong> Feedback and support messages, and the email you send them from.</li>
+    <li><strong>Technical records.</strong> App version, platform, and the error reports described under <a href="#others">who else sees it</a>.</li>
+  </ul>
+
+  <h3>What we never hold</h3>
+  <p>Full card numbers, CVV codes, card PINs, bank passwords and one-time codes. The app has nowhere to type them, so there is nothing to leak.</p>
+
+  <h2 class="sec" id="why">What we do with it</h2>
+  <ul class="body">
+    <li>Show your spending across every card in one view, in the currency you chose.</li>
+    <li>Track statement and due dates, and remind you before a payment is due.</li>
+    <li>Work out which of your cards earns most on a given purchase. These answers are worked out from your own numbers, they are informational, and they are not regulated financial advice.</li>
+    <li>Keep the app working when your phone is offline.</li>
+    <li>Understand how the app is used and fix it when it breaks.</li>
+  </ul>
+  <p>We do not profile you for advertisers, and we do not make automated decisions that carry a legal effect for you.</p>
+
+  <h2 class="sec" id="where">Where it lives, and how it is protected</h2>
+  <ul class="body">
+    <li><strong>On our servers.</strong> Your records sit in a Postgres database run by Supabase, our hosting provider. Row level security is switched on for every table, so a request carrying your account can read your rows and nobody else's, enforced by the database rather than by the app asking nicely.</li>
+    <li><strong>In transit.</strong> Every connection between the app and our servers is encrypted with TLS.</li>
+    <li><strong>On your phone.</strong> Zadi keeps a copy of your latest data so the app opens without a signal. That copy is encrypted with XChaCha20-Poly1305 under a random 256-bit key stored in the iOS Keychain or the Android Keystore, and it is unreadable to anything else on the device.</li>
+    <li><strong>Behind a lock, if you want one.</strong> You can require Face ID, Touch ID or a PIN every time Zadi opens. That check happens on the device.</li>
+  </ul>
+
+  <h2 class="sec" id="others">Who else sees it</h2>
+  <p>Four companies process data on our behalf. Each one is contracted to handle it only for us.</p>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Who</th><th>What they receive</th><th>Why</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Supabase</td>
+          <td data-label="Receives">Your account and everything listed under what we hold</td>
+          <td data-label="Why">Runs our database, sign-in and file storage</td>
+        </tr>
+        <tr>
+          <td>Sentry</td>
+          <td data-label="Receives">Crash and error reports: the fault, the screen it happened on, the app version and the device type</td>
+          <td data-label="Why">Tells us the app broke before you have to</td>
+        </tr>
+        <tr>
+          <td>PostHog</td>
+          <td data-label="Receives">Which screens are opened and which features are used, tied to an app identifier</td>
+          <td data-label="Why">Shows us what people actually use. Card numbers, amounts, merchants and names are not sent with these events</td>
+        </tr>
+        <tr>
+          <td>Apple and Google</td>
+          <td data-label="Receives">A push token for your device, and the text of the reminder itself</td>
+          <td data-label="Why">Delivers due date reminders. Turning notifications off in your phone's settings ends this</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Beyond that, we share your information only when the law or a UAE regulator requires it, and only as far as the request reaches. We do not sell it, and it is not part of any advertising exchange.</p>
+
+  <h2 class="sec" id="banks">Bank connections</h2>
+  <p>Today there are none. You type your cards and transactions in yourself, which is why the app can say so plainly.</p>
+  <p>The UAE's open finance framework, run by the Central Bank through Al Tareq, is the route we intend to take for reading card data directly. It would work like this: you approve the connection at your own bank, your login details stay with your bank and never reach us, we receive only the card data covered by that approval, and you can revoke it at your bank whenever you like. None of it happens until we hold the licensing it requires, and this page will say so before it does.</p>
+
+  <h2 class="sec" id="settle">Payments</h2>
+  <p>Zadi does not hold, custody or move your money, and it has no access to any account you can pay from. The Settle screen records a payment you have already made through your own bank, so your balances stay accurate.</p>
+  <p>Payment initiation, once we are licensed for it, would send an instruction to your bank that you approve at your bank. Money would move from your account to your card issuer, and never through Zadi.</p>
+
+  <h2 class="sec" id="choices">Your choices</h2>
+  <ul class="body">
+    <li><strong>See it.</strong> Everything Zadi stores about you is visible in the app.</li>
+    <li><strong>Take it.</strong> Settings has an export button that writes the lot to a JSON file you can keep.</li>
+    <li><strong>Correct it.</strong> Every record you entered can be edited or deleted in the app.</li>
+    <li><strong>Delete it.</strong> Settings has a delete button that removes your cards, transactions, income and connections for good. Tell us at <a href="mailto:privacy@zadi.ae">privacy@zadi.ae</a> if you want the account itself closed with it.</li>
+    <li><strong>Object or ask.</strong> Write to us about any of this, including a copy in another format, and we will answer within 30 days.</li>
+  </ul>
+
+  <h2 class="sec" id="keeping">How long we keep it</h2>
+  <p>While your account is open, because the app is only useful with your history in it. When you delete your data it goes from the live database immediately, and from our provider's encrypted backups within 30 days as those backups roll over. Error reports expire after 90 days. Anonymous usage counts may be kept as totals that cannot be traced back to a person.</p>
+
+  <h2 class="sec" id="children">Children</h2>
+  <p>Zadi is built for adults who hold credit cards and is not intended for anyone under 18. If a child's data reaches us, write to <a href="mailto:privacy@zadi.ae">privacy@zadi.ae</a> and we will remove it.</p>
+
+  <h2 class="sec" id="changes">Changes to this policy</h2>
+  <p>When it changes, the date at the top changes with it. Anything that materially affects what we hold or who sees it will be flagged in the app before it takes effect.</p>
+
+  <h2 class="sec" id="contact">Contact</h2>
+  <p>Questions, requests and complaints all go to <a href="mailto:privacy@zadi.ae">privacy@zadi.ae</a>. If we cannot resolve something between us, UAE residents can raise it with the UAE Data Office.</p>
+</main>
+
+<footer>
+  <div class="foot">
+    Zadi never holds or moves customer funds &middot; <a href="mailto:hello@zadi.ae">hello@zadi.ae</a> &middot; <a href="index.html">zadi.ae</a>
+  </div>
+</footer>
+
+</body>
+</html>

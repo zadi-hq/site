@@ -318,6 +318,8 @@
   .foot a{color:var(--ivory-mute)}
   .foot a:hover{color:var(--ivory)}
   .legal{border-top:1px solid var(--line-dark); padding-block:22px; font-size:.85rem; color:rgba(169,179,191,.85)}
+  .legal a{color:inherit}
+  .legal a:hover{color:var(--ivory)}
 
   /* reveal */
   .reveal{opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease}
@@ -487,15 +489,15 @@
 
     <div class="feature-row">
       <div class="f-copy reveal">
-        <h3>Every card paid from one place</h3>
-        <p>Settle gathers every card's amount due into one list, so paying the month takes one visit instead of three banking apps.</p>
+        <h3>Every card's payment in one place</h3>
+        <p>Settle gathers every card's amount due into one list and marks off what you have paid, so the month takes one look instead of three banking apps.</p>
         <ul class="f-list">
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Pay the minimum or the full balance on each card, from any account</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Auto-settle pays each card on its due date, so a date can never slip past</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Payment initiation only: your money moves bank to bank, never through Zadi</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>The minimum and the full balance on every card, side by side</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Record a payment the moment you make it at your bank, and every balance stays right</li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Paying from Zadi itself is on the roadmap and needs a licence first. Even then, money would move bank to bank, never through Zadi</li>
         </ul>
       </div>
-      <div class="f-visual reveal"><div class="phone"><img loading="lazy" decoding="async" src="assets/settle.png" alt="Zadi Settle screen listing every card's amount due with auto-settle" width="1290" height="2796"></div></div>
+      <div class="f-visual reveal"><div class="phone"><img loading="lazy" decoding="async" src="assets/settle.png" alt="Zadi Settle screen listing every card's amount due" width="1290" height="2796"></div></div>
     </div>
 
     <div class="feature-row">
@@ -532,8 +534,8 @@
     <div class="steps-grid">
       <div class="step reveal">
         <div class="num">1</div>
-        <h3>Connect your cards</h3>
-        <p>Link your banks through Al Tareq, the Central Bank's open finance rails. You approve at your bank, your login stays with your bank, and your data travels encrypted over the Central Bank's own infrastructure. Prefer to type? Add a card manually in under a minute.</p>
+        <h3>Add your cards</h3>
+        <p>Add a card in under a minute: the bank, the last four digits, the limit, the statement and due dates. Direct bank connections through Al Tareq, the Central Bank's open finance rails, come once Zadi is licensed for them, and your login would stay with your bank either way.</p>
       </div>
       <div class="step reveal">
         <div class="num">2</div>
@@ -543,7 +545,7 @@
       <div class="step reveal">
         <div class="num">3</div>
         <h3>Zadi keeps watch</h3>
-        <p>Reminders arrive before every due date. The best-card answer is a tap away. Settle any card from any account without leaving the app.</p>
+        <p>Reminders arrive before every due date. The best-card answer is a tap away. Mark a card settled the moment you pay it, and the numbers follow.</p>
       </div>
     </div>
   </div>
@@ -584,14 +586,14 @@
         <span class="ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3.5v5c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5v-5z"/></svg></span>
         <div>
           <h3>Your money never touches Zadi</h3>
-          <p>Settlement runs as payment initiation through the UAE's regulated open finance rails: money moves from your bank to the card issuer with your approval. Zadi never holds or moves funds itself.</p>
+          <p>Zadi holds no funds and moves none. Settle records a payment you have already made at your own bank, so nothing leaves an account through us. Payment initiation, once Zadi is licensed for it, would move money from your bank to your card issuer and never through Zadi.</p>
         </div>
       </div>
       <div class="sec-card reveal">
         <span class="ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></span>
         <div>
           <h3>Consent you control</h3>
-          <p>Bank connections run through Al Tareq, the Central Bank's own rails. You approve access at your bank and can revoke it there any time. Your login and your bank account stay with your bank: Zadi never sees them, and receives only the card data you consent to share.</p>
+          <p>Nothing is connected unless you ask for it, and today nothing is: you enter your own cards. When connections arrive through Al Tareq, the Central Bank's own rails, you would approve them at your bank and could revoke them there any time. Your login would stay with your bank, and Zadi would receive only the card data you consented to share.</p>
         </div>
       </div>
       <div class="sec-card reveal">
@@ -604,8 +606,8 @@
       <div class="sec-card reveal">
         <span class="ico"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9.5 21v-6h5v6"/></svg></span>
         <div>
-          <h3>Built on the regulated rails</h3>
-          <p>Zadi runs on the Central Bank's open finance framework, which names credit cards in its scope, under its consent rules for data sharing and payment initiation.</p>
+          <h3>Built for the regulated rails</h3>
+          <p>The Central Bank's open finance framework names credit cards in its scope, with consent rules for data sharing and for payment initiation. That framework, and the authorisation it requires, is the route Zadi is working through.</p>
         </div>
       </div>
     </div>
@@ -648,11 +650,11 @@
     <div class="faq-list reveal">
       <details>
         <summary>Does Zadi connect to my bank account?<span class="mark" aria-hidden="true"></span></summary>
-        <p>Yes, through Al Tareq, the Central Bank's open finance rails. You approve access at your own bank and can revoke it there at any time. The connection and your data travel the Central Bank's infrastructure encrypted; Zadi never sees your banking login and has no access to your bank account. Prefer not to connect? Add any card manually in about a minute and Zadi works the same way.</p>
+        <p>Not today. You add each card yourself in about a minute, and Zadi holds no connection to any bank. Direct connections through Al Tareq, the Central Bank's open finance rails, are the plan, and they need Zadi's own authorisation first. When they arrive you would approve access at your own bank and could revoke it there at any time, and Zadi would never see your banking login.</p>
       </details>
       <details>
         <summary>Is my money at risk?<span class="mark" aria-hidden="true"></span></summary>
-        <p>No. Zadi never holds or moves money. Settlement works as payment initiation through the Central Bank's regulated rails: the money moves from your bank to the card issuer with your approval, and never through Zadi.</p>
+        <p>No. Zadi never holds or moves money, and it has no access to any account you can pay from. Settle records a payment you already made at your own bank. Payment initiation, once Zadi is licensed for it, would send an instruction you approve at your bank, and the money would move from your bank to the card issuer and never through Zadi.</p>
       </details>
       <details>
         <summary>What does it cost?<span class="mark" aria-hidden="true"></span></summary>
@@ -699,7 +701,7 @@
       <p>Every credit card you own, one app that thinks about all of them.</p>
     </div>
     <div class="foot-col">
-      <p style="margin-top:0"><a href="#product">Product</a><br><a href="#how">How it works</a><br><a href="#security">Security</a><br><a href="#faq">FAQ</a></p>
+      <p style="margin-top:0"><a href="#product">Product</a><br><a href="#how">How it works</a><br><a href="#security">Security</a><br><a href="#faq">FAQ</a><br><a href="privacy.html">Privacy</a></p>
     </div>
     <div class="foot-col">
       <p style="margin-top:0"><a href="mailto:hello@zadi.ae">hello@zadi.ae</a><br><a href="https://linkedin.com/in/hatawfik" target="_blank" rel="noopener">Hussein on LinkedIn</a><br><a href="https://www.linkedin.com/in/mostafa-asseel/" target="_blank" rel="noopener">Mostafa on LinkedIn</a></p>
@@ -707,7 +709,7 @@
   </div>
   <div class="wrap legal">
     Zadi is an information tool. It does not provide regulated financial advice, and it never holds or moves customer funds.
-    &copy; 2026 Zadi &middot; United Arab Emirates
+    &copy; 2026 Zadi &middot; United Arab Emirates &middot; <a href="privacy.html">Privacy policy</a>
   </div>
 </footer>
 
