@@ -557,7 +557,7 @@
     <p class="kicker reveal">The demo</p>
     <h2 class="reveal">Every screen, explained in under two minutes.</h2>
     <video id="walkvid" class="reveal" controls playsinline preload="metadata" poster="assets/walk-poster-wide.jpg">
-      <source src="assets/zadi-walkthrough-wide.mp4" type="video/mp4">
+      <source src="assets/zadi-walkthrough-wide.mp4?v=20261004" type="video/mp4">
       Your browser does not support embedded video.
     </video>
     <script>
@@ -567,7 +567,7 @@
         var v = document.getElementById('walkvid');
         if (matchMedia('(orientation: portrait)').matches) {
           v.poster = 'assets/walk-poster-v.jpg';
-          v.querySelector('source').src = 'assets/zadi-walkthrough.mp4';
+          v.querySelector('source').src = 'assets/zadi-walkthrough.mp4?v=20261004';
           v.classList.add('portrait');
           v.load();
         }
